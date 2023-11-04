@@ -1,6 +1,7 @@
-import Posts from "@/components/DisplayPost";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+
+import Posts from "@/components/DisplayPost";
 
 export default async function Page({ params }: { params: { query: string } }) {
   const query = params.query.replace(/-/g, " ");

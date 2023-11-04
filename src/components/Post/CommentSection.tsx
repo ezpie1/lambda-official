@@ -2,8 +2,10 @@ import "@/styles/commentSection.css";
 
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Comment from "./CommentBar";
 import Link from "next/link";
+import Image from "next/image";
+
+import Comment from "./CommentBar";
 
 export default async function CommentSection({ post }: { post: string }) {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -19,6 +21,7 @@ export default async function CommentSection({ post }: { post: string }) {
   const { data: user } = await supabase.auth.getUser();
   const userId = user.user?.id;
 
+  /* eslint-disable max-len */
   return (
     <div>
       <section>
@@ -32,7 +35,7 @@ export default async function CommentSection({ post }: { post: string }) {
         {comments?.map((comment) => (
           <div key={comment.id} className="flex mt-5 items-center">
             <section>
-              <img
+              <Image
                 src="https://ezpie.vercel.app/favicon.svg"
                 alt="user avatar"
                 width={100}

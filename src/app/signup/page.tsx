@@ -1,12 +1,13 @@
 "use client";
 
+import { useState } from "react";
+
 import SignUpForm from "@/components/Auth/SignUpForm";
 import Message from "@/components/Banners/Message";
 import Separator from "@/components/form/separator";
 
 // Stylesheet for styling the form with custom styles
 import "@/styles/form.css";
-import { useState } from "react";
 
 export default function SignUp() {
   const [showInfo, setShowInfo] = useState(false);

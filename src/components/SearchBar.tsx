@@ -1,16 +1,16 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
-  const handleSearch = (event: any) => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    let formattedQuery = searchQuery.split(" ").join("-");
+    const formattedQuery = searchQuery.split(" ").join("-");
     router.push(`/search/${formattedQuery}`);
   };
 

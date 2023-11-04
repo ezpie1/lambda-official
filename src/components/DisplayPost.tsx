@@ -19,7 +19,7 @@ export default function Posts({ posts }: { posts: post[] }) {
           schema: "public",
           table: "Blogs",
         },
-        (payload) => {
+        () => {
           router.refresh();
         }
       )
@@ -33,8 +33,8 @@ export default function Posts({ posts }: { posts: post[] }) {
   return (
     <div className="md:mr-2 mx-2 mt-1 md:w-1/2">
       {posts.map((post) => (
-        <Link href={`/post/${post.id}`}>
-          <div key={post.id} className="post-wrapper">
+        <Link href={`/post/${post.id}`} key={post.id}>
+          <div className="post-wrapper">
             <p className="text-2xl post-title">{post.title}</p>
             <p className="post-author mt-3">By - {post.author.username}</p>
           </div>

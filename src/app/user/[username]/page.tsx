@@ -1,9 +1,8 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-
-// stylesheet
-import "@/styles/profilePage.css";
+import "@/styles/profilePage.css"; // stylesheet
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function UserProfile({
   params,
@@ -30,10 +29,11 @@ export default async function UserProfile({
         <div className="md:w-1/2 md:h-screen profile-info md:flex-col flex-row">
           <div className="md:mb-10 rounded-full user-avatar">
             <div className="avatar-preview">
-              <img
+              <Image
                 src="https://ezpie.vercel.app/favicon.svg"
+                alt="User avatar"
                 className="avatar-wrapper"
-              ></img>
+              ></Image>
             </div>
           </div>
           <div className="md:px-5 ml-2">
@@ -43,8 +43,8 @@ export default async function UserProfile({
         </div>
         <div className="mx-5 md:mt-0 mt-5 w-full">
           {posts?.map((post) => (
-            <Link href={`/post/${post.id}`}>
-              <div key={post.id} className="user-post">
+            <Link href={`/post/${post.id}`} key={post.id}>
+              <div className="user-post">
                 <p className="font-anonymous text-3xl mb-5">{post.title}</p>
                 <p className="font-inter">{post.content}</p>
               </div>

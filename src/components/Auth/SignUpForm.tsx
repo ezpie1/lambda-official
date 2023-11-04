@@ -1,7 +1,7 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface Props {
   Clicked: () => void;
@@ -10,16 +10,16 @@ interface Props {
 export default function SignUpForm({ Clicked }: Props) {
   const [username, setUsername] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [UserPassword, setUserPassword] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
   const supabase = createClientComponentClient();
 
-  const handleSignUp = async (event: any) => {
+  const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const { data, error } = await supabase.auth.signUp({
+    const { data } = await supabase.auth.signUp({
       email: userEmail,
-      password: UserPassword,
+      password: userPassword,
       options: {
         emailRedirectTo: `${location.origin}/auth/callback`,
         data: {
@@ -81,7 +81,7 @@ export default function SignUpForm({ Clicked }: Props) {
           id="password"
           className="input"
           onChange={(e) => setUserPassword(e.target.value)}
-          value={UserPassword}
+          value={userPassword}
         />
       </p>
 

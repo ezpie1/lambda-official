@@ -1,7 +1,9 @@
-import NavBar from "@/components/Banners/NavBar";
-import "@/styles/global.css";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+
+import NavBar from "@/components/Banners/NavBar";
+
+import "@/styles/global.css";
 
 export default async function RootLayout({
   children,

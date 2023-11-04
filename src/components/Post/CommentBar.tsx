@@ -1,7 +1,7 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface CommentInfo {
   postId: string;
@@ -13,14 +13,16 @@ export default function Comment({ postId, userId }: CommentInfo) {
 
   const supabase = createClientComponentClient<Database>();
 
-  const handleComment = async (event: any) => {
+  const handleComment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     const { data, error } = await supabase
       .from("comments")
       .insert({ content: commentData, post_id: postId, user_id: userId });
   };
 
+  /* eslint-disable max-len */
   return (
     <div className="flex justify-center">
       <form

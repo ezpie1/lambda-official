@@ -1,11 +1,12 @@
 "use client";
 
 // Components used in the login page
+import { useState } from "react";
+
 import LogInForm from "@/components/Auth/LogInForm";
 import Separator from "@/components/form/separator";
 import Message from "@/components/Banners/Message";
 
-import { useState } from "react";
 
 // StyleSheet used for styling the form
 import "@/styles/form.css";

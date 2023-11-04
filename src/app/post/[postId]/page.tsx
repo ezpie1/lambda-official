@@ -1,10 +1,9 @@
-import CommentSection from "@/components/Post/CommentSection";
-import Like from "@/components/Post/LikeBtn";
-
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-
 import { cookies } from "next/headers";
 import Link from "next/link";
+
+import Like from "@/components/Post/LikeBtn";
+import CommentSection from "@/components/Post/CommentSection";
 
 export default async function Page({ params }: { params: { postId: string } }) {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -33,6 +32,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
 
     return (
       <div>
+        {/* eslint-disable max-len */}
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 border-solid border-b-2 border-gray-500 pb-10">
           <section
             key={post.id}

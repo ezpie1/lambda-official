@@ -31,6 +31,7 @@ export default function Like({ post }: { post: post }) {
     }
   };
 
+  /* eslint-disable max-len */
   return (
     <button onClick={handleLikes} className="flex items-center group">
       <svg

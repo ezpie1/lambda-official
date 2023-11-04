@@ -1,15 +1,14 @@
+// next redirect and cookies
+import { Suspense } from "react";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+
 import Posts from "@/components/DisplayPost";
 import NewPost from "@/components/NewPost";
 
 // Post style import
 import "@/styles/homepagePostStyle.css";
-
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-
-// next redirect and cookies
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { Suspense } from "react";
 
 export default async function Home() {
   const supabase = createServerComponentClient<Database>({ cookies });

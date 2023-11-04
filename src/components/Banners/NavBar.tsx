@@ -1,9 +1,10 @@
 import "@/styles/navbar.css";
 
-import Link from "next/link";
-
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Link from "next/link";
+import Image from "next/image";
+
 import LogOut from "../Auth/LogOutBtn";
 import Search from "../SearchBar";
 
@@ -27,14 +28,14 @@ export default async function NavBar() {
       <div className="flex navbar justify-around w-auto items-center">
         <div className="logo-wrapper">
           <Link href="/">
-            <img src="/logos/logo.svg" alt="lambda logo" width={50} />
+            <Image src="/logos/logo.svg" alt="lambda logo" width={50} />
           </Link>
         </div>
         <div className="my-auto w-1/2">
           <Search />
         </div>
         <div className="rounded-full dropdown">
-          <img
+          <Image
             src="https://ezpie.vercel.app/favicon.svg"
             alt="user profile image"
             width={50}

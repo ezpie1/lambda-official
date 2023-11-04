@@ -1,0 +1,17 @@
+.info {
+  background-color: var(--light-blue-color);
+  color: white;
+  padding: 10px;
+}
+
+.danger {
+  background-color: var(--light-red-color);
+  color: white;
+  padding: 10px;
+}
+
+.success {
+  background-color: var(--light-green-color);
+  color: white;
+  padding: 10px;
+}

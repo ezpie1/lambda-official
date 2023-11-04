@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font from google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Inter:wght@100;400&display=swap");
+
+:root {
+  /* main secondary colors */
+  --red-color: #e3170a;
+  --blue-color: #0496ff;
+  --green-color: #00b295;
+  --gray-color: #b3b3b3;
+
+  /* light colors */
+  --light-red-color: #dc3f33;
+  --light-blue-color: #43b1ff;
+  --light-green-color: #23ceb1;
+  --light-gray-color: #cccccc;
+
+  /* dark colors */
+  --dark-red-color: #b00d01;
+  --dark-blue-color: #0077cd;
+  --dark-green-color: #008b74;
+  --dark-gray-color: #808080;
+}
+
+/* common styles */
+
+.text-red-color {
+  color: var(--red-color);
+}
+
+.post-btn {
+  background-color: var(--light-blue-color);
+  color: white;
+  padding: 7px 15px;
+  border-radius: 6px;
+  transition: all 1s;
+}
+
+.post-btn:hover {
+  background-color: var(--dark-blue-color);
+}
+
+.font-anonymous {
+  font-family: "Anonymous Pro", monospace;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}

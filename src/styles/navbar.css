@@ -1,0 +1,76 @@
+.navbar {
+  background-color: var(--blue-color);
+  padding: 15px 10px;
+}
+
+.logo-wrapper {
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: var(--light-gray-color) solid 1px;
+  padding: 12px 16px;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-option:first-child {
+  border: 0;
+}
+
+.dropdown-option {
+  border-top: var(--light-gray-color) solid 1px;
+  padding: 10px 5px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.dropdown-option:hover {
+  color: var(--light-gray-color);
+}
+
+form.search-bar {
+  color: var(--dark-gray-color);
+  background-color: white;
+  display: flex;
+  padding: 5px;
+  border: var(--light-gray-color) solid 1px;
+  border-radius: 10px;
+}
+
+.search-field {
+  background: transparent;
+  padding: 7px 8px;
+  outline: none;
+  font-size: 14px;
+  border: 1px solid transparent;
+  width: 90%;
+}
+
+.search-btn {
+  overflow: hidden;
+  width: 10%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.search-btn:hover {
+  opacity: 1;
+}

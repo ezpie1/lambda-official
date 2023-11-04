@@ -1,3 +1,54 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "function",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "variable",
+        "types": ["function"],
+        "format": ["camelCase"],
+        "filter": {
+          "regex": "^handle_",
+          "match": true
+        }
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "always",
+      { "js": "never", "ts": "never", "tsx": "never" }
+    ],
+    "import/no-unresolved": "error",
+    "max-len": ["error", { "code": 80, "comments": 100 }]
+  }
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 interface CommentInfo {
   postId: string;
@@ -12,6 +13,7 @@ export default function Comment({ postId, userId }: CommentInfo) {
   const [commentData, setCommentData] = useState("");
 
   const supabase = createClientComponentClient<Database>();
+  const router = useRouter();
 
   const handleComment = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,6 +23,27 @@ export default function Comment({ postId, userId }: CommentInfo) {
       .from("comments")
       .insert({ content: commentData, post_id: postId, user_id: userId });
   };
+
+  useEffect(() => {
+    const channel = supabase
+      .channel("realtime comments")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "comments",
+        },
+        () => {
+          router.refresh();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [supabase, router]);
 
   /* eslint-disable max-len */
   return (

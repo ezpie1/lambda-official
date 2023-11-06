@@ -25,10 +25,15 @@ export default async function NavBar() {
     const user = data[0];
 
     return (
-      <div className="flex navbar justify-around w-auto items-center">
+      <nav className="flex navbar justify-around w-auto items-center">
         <div className="logo-wrapper">
           <Link href="/">
-            <Image src="/logos/logo.svg" alt="lambda logo" width={50} />
+            <Image
+              src="/logos/logo.svg"
+              alt="lambda logo"
+              width={50}
+              height={50}
+            />
           </Link>
         </div>
         <div className="my-auto w-1/2">
@@ -39,6 +44,7 @@ export default async function NavBar() {
             src="https://ezpie.vercel.app/favicon.svg"
             alt="user profile image"
             width={50}
+            height={50}
             className="bg-white rounded-full"
           />
           <div className="dropdown-content">
@@ -52,7 +58,7 @@ export default async function NavBar() {
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
     );
   }
 }

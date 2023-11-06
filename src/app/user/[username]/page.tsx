@@ -33,6 +33,8 @@ export default async function UserProfile({
                 src="https://ezpie.vercel.app/favicon.svg"
                 alt="User avatar"
                 className="avatar-wrapper"
+                width={100}
+                height={100}
               ></Image>
             </div>
           </div>

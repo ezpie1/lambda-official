@@ -28,7 +28,7 @@ To get started you can follow these instructions:
 
 To make your PRs accepted, please make sure you provide a full detailed explanation of what all changes you have done
 
-For more details, please make sure to read the [contributing.md file](https://github.com/ezpie1/ezpie/blob/master/CONTRIBUTING.md)
+For more details, please make sure to read the [contributing.md file](https://github.com/ezpie1/lambda-official/blob/main/CONTRIBUTING.md)
 
 ## Contact
 

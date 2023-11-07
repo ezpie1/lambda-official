@@ -18,7 +18,7 @@ Lambda is fully maintained by a dedicated team of maintainers who are always rea
 
 We welcome contributions from everyone. Whether you're a seasoned open-source veteran or a newcomer looking to make your first contribution, there's a place for you in the Lambda community.
 
-## Getting Started
+### Getting Started
 
 To get started you can follow these instructions:
 
@@ -27,6 +27,8 @@ To get started you can follow these instructions:
 3. If you get lucky this may get assigned to you, now all you have to do is try to find a fix and make a PR for that.
 
 To make your PRs accepted, please make sure you provide a full detailed explanation of what all changes you have done
+
+For more details, please make sure to read the [contributing.md file](https://github.com/ezpie1/ezpie/blob/master/CONTRIBUTING.md)
 
 ## Contact
 

@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
           </section>
           <section className="md:w-1/3 md:mt-0 w-full mt-4">
             <div className="border-solid border-2 border-gray-300 p-5 rounded-md">
-              <p>
+              <p className="font-anonymous hover:underline w-fit">
                 <Link href={`/user/${post.author?.username}`}>
                   {post.author?.username}
                 </Link>

@@ -44,7 +44,7 @@ export default async function CommentSection({ post }: { post: string }) {
               />
             </section>
             <section className="ml-3 border-solid border-2 border-gray-300 px-5 py-2 w-1/2 rounded-md">
-              <p className="font-anonymous mb-3">
+              <p className="font-anonymous mb-3 hover:underline w-fit">
                 <Link href={`/user/${comment.profiles?.username}`}>
                   {comment.profiles?.username}
                 </Link>

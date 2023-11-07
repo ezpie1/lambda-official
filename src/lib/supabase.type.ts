@@ -11,24 +11,24 @@ export interface Database {
     Tables: {
       Blogs: {
         Row: {
-          content: string
+          content: string | null
           created_at: string
           id: string
-          title: string
+          title: string | null
           user_id: string
         }
         Insert: {
-          content: string
+          content?: string | null
           created_at?: string
           id?: string
-          title: string
+          title?: string | null
           user_id: string
         }
         Update: {
-          content?: string
+          content?: string | null
           created_at?: string
           id?: string
-          title?: string
+          title?: string | null
           user_id?: string
         }
         Relationships: [
@@ -119,34 +119,20 @@ export interface Database {
       profiles: {
         Row: {
           description: string | null
-          followers: string[] | null
-          following: string[] | null
           id: string
           username: string
         }
         Insert: {
           description?: string | null
-          followers?: string[] | null
-          following?: string[] | null
-          id: string
+          id?: string
           username: string
         }
         Update: {
           description?: string | null
-          followers?: string[] | null
-          following?: string[] | null
           id?: string
           username?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "profiles_id_fkey"
-            columns: ["id"]
-            isOneToOne: true
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
+        Relationships: []
       }
     }
     Views: {

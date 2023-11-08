@@ -3,11 +3,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import React, { useState } from "react";
 
-interface Props {
-  Clicked: () => void;
-}
-
-export default function LogInForm({ Clicked }: Props) {
+export default function LogInForm() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
@@ -22,7 +18,7 @@ export default function LogInForm({ Clicked }: Props) {
     });
 
     if (data) {
-      alert("Welcome Back!");
+      alert("Welcome Back! Please refresh to head back");
     } else {
       alert("Ops! Try again");
     }
@@ -64,9 +60,7 @@ export default function LogInForm({ Clicked }: Props) {
       </p>
 
       <div className="flex justify-center">
-        <button className="auth-btn text-xl" onClick={Clicked}>
-          LogIn
-        </button>
+        <button className="auth-btn text-xl">LogIn</button>
       </div>
     </form>
   );

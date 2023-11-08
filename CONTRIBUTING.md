@@ -48,6 +48,20 @@ create trigger on_auth_user_created
 
 Now you're all set to start contributing to lambda!
 
+### How to contribute?
+
+OK just one last step and then start coding.
+
+If you want to make any changes in lambda, please at all conditions **don't make changes directly to the main branch or the staging branch**. All changes should be made in in this order:
+
+1. Checkout of the staging branch - **P.S. don't checkout from the main branch**
+2. name the new branch fix-for-issue-`<issue-number>`
+3. Make changes
+4. Commit changes
+5. Make a PR on the staging branch
+
+You must not make change PRs to the main branch as it may affect the production project in supabase. To better understand please read till the end.
+
 ## Reporting Bugs
 
 If you encounter any bugs or issues, please create an issue in our GitHub repository detailing the bug and we will look into it.
@@ -78,7 +92,7 @@ It's cool to follow the rules, please at all conditions follow these styleguides
 
 - Use present tense ("Add feature" not "Added feature")
 - Use imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 80 characters or less, only JSX can excied this limit, using `// eslint-disable max-len` before return statement
+- Limit the first line to 80 characters or less
 - Reference issues and pull requests liberally after the first line
 
 ### TypeScript Styleguide
@@ -104,6 +118,44 @@ This section lists the labels we use to help us track and manage issues and pull
 - `invalid` - Issues that are not valid or relevant.
 - `question` - Issues that are inquiries or discussions.
 - `wontfix` - Issues that we do not plan to fix.
+
+### Workflow
+
+It's important to understand how the development workflow works here in lambda so that you know why we may ignore some of your PRs.
+
+The workflow is as follows:
+
+1. Changes are made to a branch checked out from the staging branch.
+2. Changes are commited
+3. PR is made into the new branch
+4. Once the new feature or bug is complete a new PR is made to the **staging branch**
+5. Once the **staging project in supabase** is sccuessfully checked for changes and updates, a new PR is made to the **main branch** 
+
+#### In detail explanation
+
+##### Step 1
+
+Firstly, we find a bug or a new feature is to be added to the app, we checkout of the staging branch and not the main branch, this new branch is named _fix-for-issue-<issue-number>_ or _new-feature_.
+
+##### Step 2
+
+Then changes are made to the new branch and then are commited to the new branch.
+
+##### Step 4
+
+Once changes are made, they are PRed into the new branch were these changes are end to end tested and manually tested for conformation.
+
+##### Step 4
+
+Once the new feature is added or the bug is fixed, a PR is made to the staging branch. We have an extra supabase project which is used to check if all the changes made locally are successfully updated to the supabase project.
+
+**NOTE:** _These PRs are usually made **once a week or once a month**_
+
+##### Step 5
+
+Once it's conform that the supabase project isn't failling to update it's database and all changes are made, a new PR is made to the main branch, this branch though, is connected to the production project and thus any changes made to the main branch will affect the production project.
+
+---
 
 Thank you again for your interest in contributing to Lambda!
 

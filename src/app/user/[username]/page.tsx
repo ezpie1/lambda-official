@@ -1,23 +1,35 @@
+// importing necessary libraries and hooks
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import "@/styles/profilePage.css"; // stylesheet
 import Link from "next/link";
 import Image from "next/image";
 
+/**
+ * The profile page of a user
+ *
+ * @param {string} params.username - the username of the user, given in the url
+ *
+ * @returns JSX.Element
+ */
 export default async function UserProfile({
   params,
 }: {
   params: { username: string };
 }) {
+  // Connect to supabase
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  // Get information about the user, using their username
   const { data: user } = await supabase
     .from("profiles")
     .select("*")
     .eq("username", params.username)
     .single();
 
+  // If we have the information then continue
   if (user) {
+    // Get the posts written by the user in descending order
     const { data: posts } = await supabase
       .from("Blogs")
       .select("*")

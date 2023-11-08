@@ -1,23 +1,38 @@
+// Importing styleSheet
 import "@/styles/commentSection.css";
 
+// Importing necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 
+// Importing CommentBar component
 import Comment from "./CommentBar";
 
+/**
+ * This is the comment section component that renders the CommentBar component and other JSX.Element
+ *
+ * @param {string} post - the id of which the comment section belong to, used by CommentBar component
+ *
+ * @returns JSX.Element
+ */
 export default async function CommentSection({ post }: { post: string }) {
+  // Setup supabase connection
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  // converting variable name from post to postId - Making more sense
   const postId = post;
 
+  // Get all the comments that are related with respect to postId
+  // ! Should be in order of latest to oldest
   const { data: comments } = await supabase
     .from("comments")
     .select("*, profiles(*)")
     .eq("post_id", postId)
     .order("created_at", { ascending: false });
 
+  // * Getting user id for CommentBar component
   const { data: user } = await supabase.auth.getUser();
   const userId = user.user?.id;
 

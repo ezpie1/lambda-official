@@ -1,29 +1,34 @@
 import "@/styles/navbar.css";
 
+// Import necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 
+// Importing necessary components
 import LogOut from "../Auth/LogOutBtn";
 import Search from "../SearchBar";
 
 export default async function NavBar() {
+  // connect to supabase
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  // get the user's id for getting information about the user
   const {
     data: { user },
   } = await supabase.auth.getUser();
   const userId = String(user?.id);
 
-  const { data } = await supabase
+  // get the username of the current user.
+  const { data: userInfo } = await supabase
     .from("profiles")
     .select("username")
-    .eq("id", userId);
+    .eq("id", userId)
+    .single();
 
-  if (data) {
-    const user = data[0];
-
+  // * If their is a user, then continue
+  if (userInfo) {
     return (
       <nav className="flex navbar justify-around w-auto items-center">
         <div className="logo-wrapper">
@@ -50,7 +55,7 @@ export default async function NavBar() {
           <div className="dropdown-content">
             <ul>
               <li className="dropdown-option">
-                <Link href={`/user/${user.username}`}>Profile</Link>
+                <Link href={`/user/${userInfo.username}`}>Profile</Link>
               </li>
               <li className="dropdown-option">
                 <LogOut />

@@ -1,14 +1,24 @@
 "use client";
 
+// Importing necessary libraries and hooks
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+/**
+ * Used for displaying all the posts in the Blogs table
+ *
+ * @param {post[]} posts - an array of posts
+ *
+ * @returns JSX.Element
+ */
 export default function Posts({ posts }: { posts: post[] }) {
+  // Setup supabase and router
   const supabase = createClientComponentClient();
   const router = useRouter();
 
+  // Subscribe to realtime update for the Blogs table
   useEffect(() => {
     const channel = supabase
       .channel("realtime posts")

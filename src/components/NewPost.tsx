@@ -1,22 +1,33 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
+/**
+ * NewPost component for the application
+ * @returns JSX.Element
+ */
 export default function NewPost() {
+  /**
+   * Function to add a new post
+   * @param {FormData} formData - The form data
+   */
   const addPost = async (formData: FormData) => {
     "use server";
 
+    // Extracting title and content from the form data
     const title: string = String(formData.get("title"));
     const content: string = String(formData.get("content"));
 
+    // Creating a Supabase client
     const supabase = createServerActionClient<Database>({ cookies });
 
+    // Checking if title and content are not empty
     if (title && content) {
-      // Get user
+      // Fetching the user
       const {
         data: { user },
       } = await supabase.auth.getUser();
 
-      // If user exist then only add post to the Blogs table
+      // If user exists, then only add post to the Blogs table
       if (user) {
         await supabase
           .from("Blogs")
@@ -25,6 +36,7 @@ export default function NewPost() {
     }
   };
 
+  // Returns the new post form JSX
   return (
     <form action={addPost}>
       <p>

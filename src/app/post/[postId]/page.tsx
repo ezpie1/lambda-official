@@ -1,17 +1,28 @@
+// import necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 
+// Import the LikeBtn and CommentSection components
 import Like from "@/components/Post/LikeBtn";
 import CommentSection from "@/components/Post/CommentSection";
 
+/**
+ * Displays the selected posts
+ *
+ * @param {string} params.postId - the id of the post which is selected
+ *
+ * @returns JSX.Element
+ */
 export default async function Page({ params }: { params: { postId: string } }) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  // get the current session of the user
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
+  // Get the information about the post which is selected
   const { data } = await supabase
     .from("Blogs")
     .select("*, author: profiles(*), Likes(user_id)")
@@ -30,9 +41,9 @@ export default async function Page({ params }: { params: { postId: string } }) {
   if (postInfo) {
     const post = postInfo[0];
 
+    /* eslint-disable max-len */
     return (
       <div>
-        {/* eslint-disable max-len */}
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 border-solid border-b-2 border-gray-500 pb-10">
           <section
             key={post.id}

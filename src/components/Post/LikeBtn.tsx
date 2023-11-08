@@ -1,20 +1,33 @@
 "use client";
 
+// Importing necessary libraries
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+/**
+ * Like button for adding likes in a post
+ *
+ * @param {post} post - Information about the post this like button will be used in
+ *
+ * @returns JSX.Element
+ */
 export default function Like({ post }: { post: post }) {
+  // Setup supabase and router
+  const supabase = createClientComponentClient();
   const router = useRouter();
 
+  // used for adding likes to a post by inserting new in the likes table
   const handleLikes = async () => {
-    const supabase = createClientComponentClient();
-
+    // Gets data of the current user
     const {
       data: { user },
     } = await supabase.auth.getUser();
 
+    // Checks if we have a user or not
     if (user) {
+      // Checks if the user has already liked the post or not, if true, then unlike or else like
       if (post.user_liked_post) {
+        // checks which row has the user_id eq to the current user id and which post_id has the id eq to the current post's id
         await supabase
           .from("Likes")
           .delete()
@@ -26,6 +39,7 @@ export default function Like({ post }: { post: post }) {
           .from("Likes")
           .insert({ user_id: user?.id, post_id: post.id });
 
+        // Once liked, refresh the page to update the like btn UI
         router.refresh();
       }
     }

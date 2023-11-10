@@ -27,7 +27,8 @@ export default function Like({ post }: { post: post }) {
     if (user) {
       // Checks if the user has already liked the post or not, if true, then unlike or else like
       if (post.user_liked_post) {
-        // checks which row has the user_id eq to the current user id and which post_id has the id eq to the current post's id
+        // checks which row has the user_id eq to the current user id and which
+        // post_id has the id eq to the current post's id
         await supabase
           .from("Likes")
           .delete()

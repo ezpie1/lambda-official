@@ -38,7 +38,7 @@ export default function Search() {
         placeholder="Search..."
         className="search-field"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)} // Updates the search query state when the input changes
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <button type="submit" className="search-btn">
         <svg

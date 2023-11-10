@@ -7,8 +7,8 @@ declare global {
   type Database = DB;
 
   type post = Post & {
-    author: Profile;
-    user_liked_post: boolean;
-    likes: number;
+    author: Profile | null;
+    user_liked_post?: boolean;
+    likes?: number;
   };
 }

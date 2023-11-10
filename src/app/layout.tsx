@@ -5,6 +5,9 @@ import NavBar from "@/components/Banners/NavBar";
 
 import "@/styles/global.css";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {

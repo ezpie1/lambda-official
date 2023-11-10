@@ -10,6 +10,9 @@ import Image from "next/image";
 // Importing CommentBar component
 import Comment from "./CommentBar";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /* eslint-disable max-len */
 /**
  * This is the comment section component that renders the CommentBar component and other JSX.Element

@@ -1,11 +1,12 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
 import LogInForm from "@/components/Auth/LogInForm";
 import Separator from "@/components/form/separator";
 
 // StyleSheet used for styling the form
 import "@/styles/form.css";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export default async function LogIn() {
   const supabase = createServerComponentClient({ cookies });

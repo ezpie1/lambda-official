@@ -35,7 +35,7 @@ export default async function Home() {
         </div>
         <div className="border-solid border-gray-300 md:border-[1px]"></div>
         <Suspense fallback={<p>Loading posts...</p>}>
-          <Posts posts={postsData} />
+          <Posts posts={postsData || []} />
         </Suspense>
       </div>
     </>

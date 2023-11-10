@@ -10,6 +10,7 @@ import Image from "next/image";
 // Importing CommentBar component
 import Comment from "./CommentBar";
 
+/* eslint-disable max-len */
 /**
  * This is the comment section component that renders the CommentBar component and other JSX.Element
  *
@@ -17,6 +18,7 @@ import Comment from "./CommentBar";
  *
  * @returns JSX.Element
  */
+/* eslint-enable max-len */
 export default async function CommentSection({ post }: { post: string }) {
   // Setup supabase connection
   const supabase = createServerComponentClient<Database>({ cookies });

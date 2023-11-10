@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
   const postInfo =
     data?.map((post) => ({
       ...post,
-      user_liked_post: post.Likes.find(
+      user_liked_post: post.Likes.some(
         (like) => like.user_id === session?.user.id
       ),
       likes: post.Likes.length,

@@ -8,6 +8,9 @@ import Separator from "@/components/form/separator";
 // StyleSheet used for styling the form
 import "@/styles/form.css";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 export default async function LogIn() {
   const supabase = createServerComponentClient({ cookies });
 

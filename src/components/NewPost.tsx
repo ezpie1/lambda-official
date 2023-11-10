@@ -1,6 +1,9 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * NewPost component for the application
  * @returns JSX.Element

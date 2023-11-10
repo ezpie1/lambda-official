@@ -10,6 +10,9 @@ import NewPost from "@/components/NewPost";
 // Post style import
 import "@/styles/homepagePostStyle.css";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const supabase = createServerComponentClient<Database>({ cookies });
 

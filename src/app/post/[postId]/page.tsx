@@ -7,6 +7,9 @@ import Link from "next/link";
 import Like from "@/components/Post/LikeBtn";
 import CommentSection from "@/components/Post/CommentSection";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * Displays the selected posts
  *

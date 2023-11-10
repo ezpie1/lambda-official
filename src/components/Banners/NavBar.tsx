@@ -10,6 +10,9 @@ import Image from "next/image";
 import LogOut from "../Auth/LogOutBtn";
 import Search from "../SearchBar";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 export default async function NavBar() {
   // connect to supabase
   const supabase = createServerComponentClient<Database>({ cookies });

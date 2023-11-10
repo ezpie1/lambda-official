@@ -5,6 +5,9 @@ import "@/styles/profilePage.css"; // stylesheet
 import Link from "next/link";
 import Image from "next/image";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * The profile page of a user
  *

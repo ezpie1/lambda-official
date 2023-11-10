@@ -46,7 +46,7 @@ export default function Posts({ posts }: { posts: post[] }) {
         <Link href={`/post/${post.id}`} key={post.id}>
           <div className="post-wrapper">
             <p className="text-2xl post-title">{post.title}</p>
-            <p className="post-author mt-3">By - {post.author.username}</p>
+            <p className="post-author mt-3">By - {post.author?.username}</p>
           </div>
         </Link>
       ))}

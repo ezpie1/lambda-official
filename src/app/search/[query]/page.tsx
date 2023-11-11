@@ -5,6 +5,9 @@ import { cookies } from "next/headers";
 // importing the DisplayPost component
 import Posts from "@/components/DisplayPost";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * The search result page done by user
  *

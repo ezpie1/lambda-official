@@ -3,6 +3,9 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * HTTP GET method to create a cookie for the user
  *

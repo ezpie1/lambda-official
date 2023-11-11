@@ -4,6 +4,8 @@
 
 Welcome to Lambda, the world's first open-source social media app. Created by Ezpie, Lambda is a revolutionary platform that brings the power of social media into the hands of the open-source community.
 
+<a href="https://www.producthunt.com/posts/lambda-the-social-media-app?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lambda&#0045;the&#0045;social&#0045;media&#0045;app" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=424746&theme=light" alt="Lambda&#0032;the&#0032;social&#0032;media&#0032;app - The&#0032;first&#0032;ever&#0032;open&#0045;source&#0032;social&#0032;media&#0032;app | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## Overview
 
 Lambda is designed with simplicity in mind, providing a user-friendly interface that makes navigation a breeze. Despite its simplicity, Lambda offers all the features you'd expect from a top-tier social media platform.

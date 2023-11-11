@@ -1,6 +1,6 @@
 # Lambda: The World's First Open-Source Social Media App
 
-**NOTE:** _Lambda will be released on 10 Nov 2023_
+**NOTE:** _Lambda beta version is out! Changes are to be noticed_
 
 Welcome to Lambda, the world's first open-source social media app. Created by Ezpie, Lambda is a revolutionary platform that brings the power of social media into the hands of the open-source community.
 

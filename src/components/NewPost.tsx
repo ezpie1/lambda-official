@@ -48,6 +48,7 @@ export default function NewPost() {
           type="text"
           name="title"
           className="outline-none border-solid border-2 border-black rounded-md"
+          test-data="blogTitle"
         />
       </p>
 
@@ -59,11 +60,12 @@ export default function NewPost() {
           cols={30}
           rows={10}
           className="rounded-md resize-none border-solid border-2 border-black"
+          test-data="blogContent"
         ></textarea>
       </p>
 
       <div className="flex justify-center">
-        <button type="submit" className="post-btn">
+        <button type="submit" className="post-btn" test-data="blogPostBtn">
           Post
         </button>
       </div>

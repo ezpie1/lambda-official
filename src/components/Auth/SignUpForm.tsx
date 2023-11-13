@@ -35,6 +35,7 @@ export default function SignUpForm() {
         emailRedirectTo: `${location.origin}/auth/callback`,
         data: {
           username: username,
+          email: userEmail,
         },
       },
     });

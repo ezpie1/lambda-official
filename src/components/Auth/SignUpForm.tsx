@@ -27,7 +27,8 @@ export default function SignUpForm() {
     // Prevent the default functioning of the form
     event.preventDefault();
 
-    // Create a new user with their email and password, store their provided username also
+    // Create a new user with their email and password, store their provided
+    // username and email as meta data
     const { data } = await supabase.auth.signUp({
       email: userEmail,
       password: userPassword,

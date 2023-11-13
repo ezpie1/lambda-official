@@ -14,25 +14,6 @@
   margin-top: 10px;
 }
 
-.input {
-  background-color: var(--green-color);
-  color: white;
-  padding: 5px 10px 5px 10px;
-  outline: none;
-  border: white solid 2px;
-  border-radius: 5px;
-  transition: all 0.5s;
-}
-
-.input:hover {
-  background-color: var(--light-green-color);
-}
-
-.input:focus {
-  border: var(--dark-green-color) solid 2px;
-  background-color: var(--light-green-color);
-}
-
 .auth-btn {
   background-color: var(--green-color);
   color: white;

@@ -9,11 +9,11 @@ import { useEffect } from "react";
 /**
  * Used for displaying all the posts in the Blogs table
  *
- * @param {post[]} posts - an array of posts
+ * @param {postWithAuthor[]} posts - an array of posts, with their authors info
  *
  * @returns JSX.Element
  */
-export default function Posts({ posts }: { posts: post[] }) {
+export default function Posts({ posts }: { posts: postWithAuthor[] }) {
   // Setup supabase and router
   const supabase = createClientComponentClient();
   const router = useRouter();

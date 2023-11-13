@@ -1,0 +1,20 @@
+.profile-setting > h1 {
+  border-bottom: var(--light-gray-color) 1px solid;
+  padding-bottom: 10px;
+}
+
+.update-profile {
+  background-color: var(--green-color);
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border: white solid 2px;
+  border-radius: 5px;
+}
+
+.input-field {
+  background-color: var(--green-color);
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border: white solid 2px;
+  border-radius: 5px;
+}

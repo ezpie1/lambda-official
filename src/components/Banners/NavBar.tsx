@@ -61,6 +61,9 @@ export default async function NavBar() {
                 <Link href={`/user/${userInfo.username}`}>Profile</Link>
               </li>
               <li className="dropdown-option">
+                <Link href="/settings/profile">Settings</Link>
+              </li>
+              <li className="dropdown-option">
                 <LogOut />
               </li>
             </ul>

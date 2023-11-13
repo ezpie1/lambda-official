@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation";
 /**
  * Like button for adding likes in a post
  *
- * @param {post} post - Information about the post this like button will be used in
+ * @param {postWithAuthor} post - Information about the post this like button will be used in
  *
  * @returns JSX.Element
  */
-export default function Like({ post }: { post: post }) {
+export default function Like({ post }: { post: postWithAuthor }) {
   // Setup supabase and router
   const supabase = createClientComponentClient();
   const router = useRouter();

@@ -12,39 +12,75 @@ We have a code of conduct in place. We expect all contributors to adhere to it. 
 
 **NOTE:** _This is just not for contributors, but also for the maintianers_
 
-Firstly you must make sure you have all these things installed in your system:
+#### Linux
 
-- WSL(windows users only) - used for development, optional but recommended
-- HomeBrew - used for installing supabase
-- Forked and cloned the repository - follow this [guide](https://dev.to/ezpieco/how-to-contribute-in-github-48pn)
-- run npm install - To install all npm packages
-- Docker desktop - Used for running supabase locally for development
+Follow these steps to setup your dev environment
 
-Once you have installed all this you're setup to start contributing!
+1. Install [HomeBrew](https://brew.sh) - used for install supabase globally in your system
 
-#### Making changes to local supabase
+2. Install [Node](https://nodejs.org/en/) - Used for running and devloping the app locally
 
-There is still one step left before you can start contributing, you have to setup your local supabase project the same way as our supabase project, for this just do the following:
+3. Install [Docker desktop](https://www.docker.com/products/docker-desktop/) - Used for running supabase locally for development
 
-```
-# Run supabase locally, will take time on first runs
-supabase start
+4. Forked and cloned the repository - follow this [guide](https://dev.to/ezpieco/how-to-contribute-in-github-48pn)
 
-# Push all the database related content to your local supabase
-supabase migration up
-```
+5. `run npm install` - To install all npm packages
 
-Once you have done this you will be able to see that their are some supabase tables in your supabase project
+6. Open docker destop, and make sure that the docker engine has started
 
-![local supabase database change after running supabase migration up](https://github.com/ezpie1/lambda-official/assets/104765117/2cc28757-cf19-4798-af41-0a0bddeab29e)
+7. Start supabase locally with `supabase start`
 
-You just now have to run a SQL code in the SQL editor in order to make a supabase trigger, this trigger is used to create user profiles in the the profiles table
+8. Open `localhost:54323` this is where supabase is hosted locally
 
-```sql
-create trigger on_auth_user_created
-  after insert on auth.users
-  for each row execute procedure public.create_profile_for_user();
-```
+9. Open the SQL editor and run this:
+  ```sql
+    create trigger on_auth_user_created
+    after insert on auth.users
+    for each row execute procedure public.create_profile_for_user();
+  ```
+
+10. Open the Table editor and open the **Blogs and comments table** and click on the _Realtime on_ button
+
+11. Run the app with `npm run dev`
+
+12. Visit the app at `localhost:3000`
+
+13. Create a test user and start making changes!
+
+#### Windows
+
+Follow these steps to setup your dev environment
+
+1. Install [Scoop](https://scoop.sh) - used to install supabase globally in your system
+
+2. Install [Node](https://nodejs.org/en/) - used for running and developing the app locally
+
+3. Install [Docker desktop](https://www.docker.com/products/docker-desktop/) - Used for running supabase locally for development
+
+4. Forked and cloned the repository - follow this [guide](https://dev.to/ezpieco/how-to-contribute-in-github-48pn)
+
+5. `run npm install` - To install all npm packages
+
+6. Open docker destop
+
+7. Start supabase locally with `supabase start`
+
+8. Open `localhost:54323` this is where supabase is hosted locally
+
+9. Open the SQL editor and run this:
+  ```sql
+    create trigger on_auth_user_created
+    after insert on auth.users
+    for each row execute procedure public.create_profile_for_user();
+  ```
+
+10. Open the Table editor and open the **Blogs and comments table** and click on the _Realtime on_ button
+
+11. Run the app with `npm run dev`
+
+12. Visit the app at `localhost:3000`
+
+13. Create a test user and start making changes!
 
 Now you're all set to start contributing to lambda!
 
@@ -54,27 +90,25 @@ OK just one last step and then start coding.
 
 If you want to make any changes in lambda, please at all conditions **don't make changes directly to the main branch or the staging branch**. All changes should be made in in this order:
 
-1. Checkout of the staging branch - **P.S. don't checkout from the main branch**
-2. name the new branch fix-for-issue-`<issue-number>`
-3. Make changes
-4. Commit changes
-5. Make a PR on the staging branch
+1. Make your changes and commit them
+2. Make a PR, but to the branch which is assigned to you, this will be told at the issue you were assigned
+3. Give a proper description of the changes you made, you can also add a short video of the change, showing how it affects the overall app
 
 You must not make change PRs to the main branch as it may affect the production project in supabase. To better understand please read till the end.
 
-## Reporting Bugs
+### Reporting Bugs
 
 If you encounter any bugs or issues, please create an issue in our GitHub repository detailing the bug and we will look into it.
 
-## Suggesting Enhancements
+### Suggesting Enhancements
 
 If you have ideas for new features or enhancements, we'd love to hear them! Please create an issue in our GitHub repository detailing your suggestion.
 
-## Your First Code Contribution
+### Your First Code Contribution
 
 If you're looking to make your first code contribution, look for issues tagged with 'good first issue'. These are designed to be more accessible to new contributors.
 
-### Pull Requests
+#### Pull Requests
 
 1. Make changes and commit them using the styleguide
 2. If you've added code that isn't in the test suits, add tests, also please conform from us for this as we can't accept code that isn't a bug fix but a new feature.
@@ -131,27 +165,27 @@ The workflow is as follows:
 4. Once the new feature or bug is complete a new PR is made to the **staging branch**
 5. Once the **staging project in supabase** is sccuessfully checked for changes and updates, a new PR is made to the **main branch** 
 
-#### In detail explanation
+### In detail explanation
 
-##### Step 1
+#### Step 1
 
 Firstly, we find a bug or a new feature is to be added to the app, we checkout of the staging branch and not the main branch, this new branch is named _fix-for-issue-<issue-number>_ or _new-feature_.
 
-##### Step 2
+#### Step 2
 
 Then changes are made to the new branch and then are commited to the new branch.
 
-##### Step 4
+#### Step 4
 
 Once changes are made, they are PRed into the new branch were these changes are end to end tested and manually tested for conformation.
 
-##### Step 4
+#### Step 4
 
 Once the new feature is added or the bug is fixed, a PR is made to the staging branch. We have an extra supabase project which is used to check if all the changes made locally are successfully updated to the supabase project.
 
 **NOTE:** _These PRs are usually made **once a week or once a month**_
 
-##### Step 5
+#### Step 5
 
 Once it's conform that the supabase project isn't failling to update it's database and all changes are made, a new PR is made to the main branch, this branch though, is connected to the production project and thus any changes made to the main branch will affect the production project.
 

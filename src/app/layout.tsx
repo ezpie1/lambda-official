@@ -5,6 +5,9 @@ import NavBar from "@/components/Banners/NavBar";
 
 import "@/styles/global.css";
 
+// import analytics by vercel for analysis
+import { Analytics } from "@vercel/analytics/react";
+
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
 
@@ -28,6 +31,7 @@ export default async function RootLayout({
       <body>
         {session && <NavBar />}
         {children}
+        <Analytics />
       </body>
     </html>
   );

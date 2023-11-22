@@ -1,12 +1,11 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import analytics by vercel for analysis
+import { Analytics } from "@vercel/analytics/react";
 
 import NavBar from "@/components/Banners/NavBar";
 
 import "@/styles/global.css";
-
-// import analytics by vercel for analysis
-import { Analytics } from "@vercel/analytics/react";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

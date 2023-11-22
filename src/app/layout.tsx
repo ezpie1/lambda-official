@@ -1,5 +1,7 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import analytics by vercel for analysis
+import { Analytics } from "@vercel/analytics/react";
 
 import NavBar from "@/components/Banners/NavBar";
 
@@ -28,6 +30,7 @@ export default async function RootLayout({
       <body>
         {session && <NavBar />}
         {children}
+        <Analytics />
       </body>
     </html>
   );

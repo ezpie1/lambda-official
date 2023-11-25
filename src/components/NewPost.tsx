@@ -1,5 +1,11 @@
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+"use client";
+
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+// import stylesheet
+import "@/styles/newPostPage.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -9,66 +15,75 @@ export const dynamic = "force-dynamic";
  * @returns JSX.Element
  */
 export default function NewPost() {
+  // the title and content of the post
+  const [postTitle, setPostTitle] = useState("");
+  const [postContent, setPostContent] = useState("");
+
+  const supabase = createClientComponentClient<Database>();
+  const router = useRouter();
+
   /**
    * Function to add a new post
-   * @param {FormData} formData - The form data
    */
-  const addPost = async (formData: FormData) => {
-    "use server";
+  const addPost = async (event: React.FormEvent<HTMLFormElement>) => {
+    // prevent all default actions from occurring
+    event.preventDefault();
 
-    // Extracting title and content from the form data
-    const title: string = String(formData.get("title"));
-    const content: string = String(formData.get("content"));
+    // Fetching the user
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    // Creating a Supabase client
-    const supabase = createServerActionClient<Database>({ cookies });
+    // If user exists, then only add post to the Blogs table
+    if (user) {
+      const { status } = await supabase
+        .from("Blogs")
+        .insert({ content: postContent, title: postTitle, user_id: user.id });
 
-    // Checking if title and content are not empty
-    if (title && content) {
-      // Fetching the user
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      // If user exists, then only add post to the Blogs table
-      if (user) {
-        await supabase
+      if (status === 201) {
+        // get the newly added post's id and redirect the user to it
+        const { data: post } = await supabase
           .from("Blogs")
-          .insert({ content, title, user_id: user.id });
+          .select("id")
+          .eq("title", postTitle)
+          .single();
+
+        router.push(`/post/${post?.id}`);
       }
     }
   };
 
   // Returns the new post form JSX
   return (
-    <form action={addPost}>
-      <p>
-        <label htmlFor="title">Title</label> <br />
-        <input
-          type="text"
-          name="title"
-          className="outline-none border-solid border-2 border-black rounded-md"
-          test-data="blogTitle"
-        />
-      </p>
+    <form onSubmit={addPost}>
+      <div className="post-form p-5 sm:w-[50vw] w-full">
+        <p>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Post title..."
+            className="meta-data mb-5 meta-data-title font-inter"
+            value={postTitle}
+            onChange={(e) => setPostTitle(e.target.value)}
+          />
+        </p>
 
-      <p>
-        <label htmlFor="content">Content</label> <br />
-        <textarea
-          name="content"
-          id="content"
-          cols={30}
-          rows={10}
-          className="rounded-md resize-none border-solid border-2 border-black"
-          test-data="blogContent"
-        ></textarea>
-      </p>
-
-      <div className="flex justify-center">
-        <button type="submit" className="post-btn" test-data="blogPostBtn">
-          Post
-        </button>
+        <p>
+          <textarea
+            placeholder="Post content goes here..."
+            name="content"
+            id="content"
+            className="meta-data meta-data-content"
+            value={postContent}
+            onChange={(e) => setPostContent(e.target.value)}
+          ></textarea>
+        </p>
       </div>
+
+      <button type="submit" className="post-btn">
+        Post
+      </button>
     </form>
   );
 }

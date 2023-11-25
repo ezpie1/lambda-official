@@ -1,0 +1,18 @@
+.post {
+  border: var(--neural-200) solid 1px;
+}
+
+.post > div > h1 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.post-divider {
+  border-bottom: 1px solid var(--neural-200);
+}
+
+.author-info {
+  border: var(--neural-200) solid 1px;
+  height: fit-content;
+  padding: 15px 20px;
+}

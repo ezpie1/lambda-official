@@ -117,9 +117,7 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
             <textarea
               id="description"
               name="description"
-              // rows={100}
-              cols={100}
-              className="bg-transparent outline-none placeholder:text-white"
+              className="bg-transparent outline-none placeholder:text-white w-[90%]"
               placeholder="Describe yourself..."
               onChange={(e) => setUserDescription(e.target.value)}
             />

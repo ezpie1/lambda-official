@@ -6,41 +6,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Inter:wght@100;400&display=swap");
 
 :root {
-  /* main secondary colors */
-  --red-color: #e3170a;
-  --blue-color: #0496ff;
-  --green-color: #00b295;
-  --gray-color: #b3b3b3;
+  /* primary color */
+  --primary-300: #93aaff;
+  --primary-400: #5e7ef2;
+  --primary-600: #1f43c4;
 
-  /* light colors */
-  --light-red-color: #dc3f33;
-  --light-blue-color: #43b1ff;
-  --light-green-color: #23ceb1;
-  --light-gray-color: #cccccc;
+  /* Neural colors */
+  --neural-100: #fbfbfc;
+  --neural-200: #d6d6d9;
+  --neural-300: #a8a8ad;
+  --neural-400: #868690;
+  --neural-500: #585864;
+  --neural-600: #575763;
+  --neural-700: #454553;
+  --neural-800: #414151;
+  --neural-900: #2f2f3e;
 
-  /* dark colors */
-  --dark-red-color: #b00d01;
-  --dark-blue-color: #0077cd;
-  --dark-green-color: #008b74;
-  --dark-gray-color: #808080;
+  /* green color */
+  --green-300: #9cff94;
+  --green-400: #6af25e;
+  --green-500: #44eb36;
+  --green-700: #19a30d;
+  --green-900: #064d00;
+
+  /* blue color */
+  --blue-500: #37a0eb;
+  --blue-700: #0d64a3;
+  --blue-900: #002c4d;
+
+  /* red color */
+  --red-500: #eb3636;
 }
 
 /* common styles */
 
 .text-red-color {
-  color: var(--red-color);
-}
-
-.post-btn {
-  background-color: var(--light-blue-color);
-  color: white;
-  padding: 7px 15px;
-  border-radius: 6px;
-  transition: all 1s;
-}
-
-.post-btn:hover {
-  background-color: var(--dark-blue-color);
+  color: var(--red-500);
 }
 
 .font-anonymous {
@@ -52,7 +53,7 @@
 }
 
 .input {
-  background-color: var(--green-color);
+  background-color: var(--green-700);
   color: white;
   padding: 5px 10px 5px 10px;
   outline: none;
@@ -62,14 +63,20 @@
 }
 
 .input:hover {
-  background-color: var(--light-green-color);
+  background-color: var(--green-900);
 }
 
 .input:focus {
-  border: var(--dark-green-color) solid 2px;
-  background-color: var(--light-green-color);
+  background-color: var(--green-900);
 }
 
 .text-gray-dark {
   color: var(--dark-gray-color);
+}
+
+.info-badge {
+  border: var(--green-400) solid 3px;
+  color: var(--green-400);
+  padding: 5px 10px;
+  border-radius: 2rem;
 }

@@ -7,6 +7,9 @@ import Link from "next/link";
 import Like from "@/components/Post/LikeBtn";
 import CommentSection from "@/components/Post/CommentSection";
 
+// importing stylesheet
+import "@/styles/PostPage.css";
+
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
 
@@ -47,26 +50,23 @@ export default async function Page({ params }: { params: { postId: string } }) {
     /* eslint-disable max-len */
     return (
       <div>
-        <section className="md:flex justify-between md:mx-2 mx-1 my-4 border-solid border-b-2 border-gray-500 pb-10">
-          <section
-            key={post.id}
-            className="border-solid border-2 border-gray-300 p-5 pb-10 md:w-1/2 rounded-md"
-          >
-            <h1 className="text-3xl font-anonymous mb-8">{post.title}</h1>
-            <p className="font-inter">{post.content}</p>
-          </section>
-          <section className="md:w-1/3 md:mt-0 w-full mt-4">
-            <div className="border-solid border-2 border-gray-300 p-5 rounded-md">
-              <p className="font-anonymous hover:underline w-fit">
-                <Link href={`/user/${post.author?.username}`}>
-                  {post.author?.username}
-                </Link>
-              </p>
-              <p>{post.author?.description}</p>
+        <section className="md:flex justify-between md:mx-2 mx-1 my-4 pb-10 post-divider">
+          <section className="post p-5 md:w-1/2">
+            <div className="mb-10">
+              <h1 className="font-anonymous mb-8">{post.title}</h1>
+              <p className="font-inter post-content">{post.content}</p>
             </div>
-            <div className="flex justify-center md:mt-0 mt-5">
+            <div>
               <Like post={post} />
             </div>
+          </section>
+          <section className="md:w-1/3 md:mt-0 w-full mt-4 author-info">
+            <p className="font-anonymous hover:underline w-fit">
+              <Link href={`/user/${post.author?.username}`}>
+                {post.author?.username}
+              </Link>
+            </p>
+            <p>{post.author?.description}</p>
           </section>
         </section>
         <section>

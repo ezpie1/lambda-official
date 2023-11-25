@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import Posts from "@/components/DisplayPost";
-import NewPost from "@/components/NewPost";
 
 // Post style import
 import "@/styles/homepagePostStyle.css";
@@ -31,16 +30,15 @@ export default async function Home() {
     .order("created_at", { ascending: false });
 
   return (
-    <>
-      <div className="block md:flex justify-around mt-10">
-        <div className="flex justify-center">
-          <NewPost />
-        </div>
-        <div className="border-solid border-gray-300 md:border-[1px]"></div>
+    <div className="md:flex mt-10 mx-10 md:justify-between">
+      <section className="md:w-1/2 w-full">
         <Suspense fallback={<p>Loading posts...</p>}>
           <Posts posts={postsData || []} />
         </Suspense>
-      </div>
-    </>
+      </section>
+      <section className="md:block hidden">
+        <h1 className="info-badge">Coming soon...</h1>
+      </section>
+    </div>
   );
 }

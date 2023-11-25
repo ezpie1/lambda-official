@@ -5,6 +5,9 @@ import { cookies } from "next/headers";
 // importing the DisplayPost component
 import Posts from "@/components/DisplayPost";
 
+// importing stylesheet
+import "@/styles/searchResultPage.css";
+
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
 
@@ -31,8 +34,13 @@ export default async function Page({ params }: { params: { query: string } }) {
 
   if (posts) {
     return (
-      <div className="flex mt-10 justify-center">
-        <Posts posts={posts} />
+      <div className="md:flex mt-10 md:justify-between mx-10">
+        <section className="md:w-1/2 w-full">
+          <Posts posts={posts} />
+        </section>
+        <section className="md:block hidden">
+          <h1 className="info-badge">Coming soon...</h1>
+        </section>
       </div>
     );
   } else {

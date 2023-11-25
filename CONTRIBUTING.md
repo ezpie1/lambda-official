@@ -33,11 +33,12 @@ Follow these steps to setup your dev environment
 8. Open `localhost:54323` this is where supabase is hosted locally
 
 9. Open the SQL editor and run this:
-  ```sql
-    create trigger on_auth_user_created
-    after insert on auth.users
-    for each row execute procedure public.create_profile_for_user();
-  ```
+
+```sql
+  create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.create_profile_for_user();
+```
 
 10. Open the Table editor and open the **Blogs and comments table** and click on the _Realtime on_ button
 
@@ -68,11 +69,12 @@ Follow these steps to setup your dev environment
 8. Open `localhost:54323` this is where supabase is hosted locally
 
 9. Open the SQL editor and run this:
-  ```sql
-    create trigger on_auth_user_created
-    after insert on auth.users
-    for each row execute procedure public.create_profile_for_user();
-  ```
+
+```sql
+  create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.create_profile_for_user();
+```
 
 10. Open the Table editor and open the **Blogs and comments table** and click on the _Realtime on_ button
 
@@ -83,6 +85,15 @@ Follow these steps to setup your dev environment
 13. Create a test user and start making changes!
 
 Now you're all set to start contributing to lambda!
+
+#### ENV variables
+
+In order to connect with supabase you would need to know your local API URL and Anon key, this is provided by supabase when you run `supabase start`, just copy & paste the two values in a _.env.local_ file like this:
+
+```
+NEXT_PUBLIC_SUPABASE_URL="your api url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="Your anon key"
+```
 
 ### How to contribute?
 
@@ -163,7 +174,7 @@ The workflow is as follows:
 2. Changes are commited
 3. PR is made into the new branch
 4. Once the new feature or bug is complete a new PR is made to the **staging branch**
-5. Once the **staging project in supabase** is sccuessfully checked for changes and updates, a new PR is made to the **main branch** 
+5. Once the **staging project in supabase** is sccuessfully checked for changes and updates, a new PR is made to the **main branch**
 
 ### In detail explanation
 

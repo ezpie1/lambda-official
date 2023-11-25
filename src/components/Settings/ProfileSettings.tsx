@@ -71,7 +71,7 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
     }
   };
 
-  /* eslint-disable react/no-unescaped-entities */
+  /* eslint-disable max-len */
   return (
     <div>
       <h1 className="font-semibold text-2xl">Profile Setting</h1>
@@ -117,9 +117,7 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
             <textarea
               id="description"
               name="description"
-              // rows={100}
-              cols={100}
-              className="bg-transparent outline-none placeholder:text-white"
+              className="bg-transparent outline-none placeholder:text-white w-[90%]"
               placeholder="Describe yourself..."
               onChange={(e) => setUserDescription(e.target.value)}
             />
@@ -178,8 +176,8 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
             </button>
           </span>
           <span className="text-gray-dark text-xs">
-            Your email isn't displayed across the site, but is used in case we
-            need to contact you.
+            Your email isn&apos;t displayed across the site, but is used in case
+            we need to contact you.
           </span>
         </p>
       </div>

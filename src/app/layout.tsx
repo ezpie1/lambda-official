@@ -3,9 +3,9 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 // import analytics by vercel for analysis
 import { Analytics } from "@vercel/analytics/react";
 
-import NavBar from "@/components/Banners/NavBar";
-
 import "@/styles/global.css";
+import NavBar from "@/components/Banners/NavBar";
+import BottomNav from "@/components/Banners/BottomNav";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -15,11 +15,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Used for checking if the user is authenticated or not. If yes then display the navbar
+  // Used for checking if the user is authenticated or not. If yes then display the navbars
   const supabase = createServerComponentClient({ cookies });
   const {
     data: { session },
   } = await supabase.auth.getSession();
+
+  // used by the bottomNav component for redirecting purpose
+  const { data } = await supabase.auth.getUser();
+  const userId = data.user?.id;
 
   return (
     <html lang="en">
@@ -27,9 +31,10 @@ export default async function RootLayout({
         <link rel="icon" href="/logos/logo.svg" />
         <title>Lambda</title>
       </head>
-      <body>
+      <body className="w-[100vw] overflow-x-hidden">
         {session && <NavBar />}
         {children}
+        {session && <BottomNav userId={userId} />}
         <Analytics />
       </body>
     </html>

@@ -8,6 +8,9 @@ import "@/styles/settings.css";
 // importing ProfileSettings component
 import ProfileSettings from "@/components/Settings/ProfileSettings";
 
+// Tell's vercel that this is a dynamic function
+export const dynamic = "force-dynamic";
+
 /**
  * This is the `/settings/profile` route that is used to update the information of the user using UI
  *

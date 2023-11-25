@@ -1,0 +1,46 @@
+.post-form {
+  --neural-200-20: rgba(215, 215, 218, 0.2);
+
+  background-color: var(--neural-200-20);
+  border: var(--neural-200) solid 1px;
+  border-radius: 10px;
+}
+
+.meta-data {
+  background: transparent;
+  /* border: red solid 1px; */
+  width: 100%;
+  outline: none;
+}
+
+.meta-data-title {
+  padding: 3px 5px;
+  color: var(--neural-500);
+  font-size: 41px;
+  font-weight: bold;
+}
+
+.meta-data-title::placeholder {
+  color: var(--neural-500);
+  font-weight: bold;
+  font-size: 41px;
+}
+
+.meta-data-content {
+  padding: 1rem;
+}
+
+.post-btn {
+  background-color: var(--primary-400);
+  color: var(--primary-600);
+  font-size: 2rem;
+  padding: 3px 22px;
+  margin-top: 2rem;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.post-btn:hover {
+  background-color: var(--primary-600);
+  color: var(--primary-400);
+}

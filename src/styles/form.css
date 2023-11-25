@@ -8,15 +8,15 @@
 }
 
 .form {
-  border: var(--blue-color) solid 2px;
+  border: var(--blue-500) solid 2px;
   border-radius: 10px;
   padding: 20px;
   margin-top: 10px;
 }
 
 .auth-btn {
-  background-color: var(--green-color);
-  color: white;
+  border: var(--primary-400) solid 3px;
+  color: var(--primary-400);
   padding: 5px 10px 5px 10px;
   border-radius: 10px;
   margin-top: 20px;
@@ -25,26 +25,25 @@
 }
 
 .auth-btn:hover {
-  background-color: var(--dark-green-color);
+  background-color: var(--primary-400);
+  color: var(--primary-600);
 }
 
 .separator {
   background-image: linear-gradient(
     to right,
-    var(--blue-color),
-    var(--green-color)
+    var(--blue-500),
+    var(--green-500)
   );
 }
 
 .link-text {
-  color: var(--blue-color);
-  border-bottom: 1px solid var(--blue-color);
+  color: var(--blue-500);
+  border-bottom: 1px solid var(--blue-500);
   transition: all 1s;
 }
 
 .link-text:hover {
-  --link-color: var(--gray-color);
-
-  color: var(--link-color);
-  border-color: var(--link-color);
+  color: var(--neural-400);
+  border-color: var(--neural-400);
 }

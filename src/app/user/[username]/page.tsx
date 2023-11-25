@@ -58,12 +58,12 @@ export default async function UserProfile({
             <p className="font-inter">{user?.description}</p>
           </div>
         </div>
-        <div className="mx-5 md:mt-0 mt-5 w-full">
+        <div className="mx-5 md:mt-0 mt-5 md:w-full">
           {posts?.map((post) => (
             <Link href={`/post/${post.id}`} key={post.id}>
-              <div className="user-post">
+              <div className="user-post w-full">
                 <p className="font-anonymous text-3xl mb-5">{post.title}</p>
-                <p className="font-inter">{post.content}</p>
+                <p className="font-inter truncate">{post.content}</p>
               </div>
             </Link>
           ))}

@@ -43,7 +43,7 @@ export default async function CommentSection({ post }: { post: string }) {
 
   /* eslint-disable max-len */
   return (
-    <div>
+    <div className="ml-2">
       <section>
         {userId ? (
           <Comment postId={postId} userId={userId} />

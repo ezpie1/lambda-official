@@ -6,7 +6,7 @@
   .profile-info {
     justify-content: center;
     align-items: center;
-    border-right: var(--light-gray-color) solid 3px;
+    border-right: var(--neural-400) solid 3px;
     padding: 0;
   }
 }
@@ -15,7 +15,7 @@
   .profile-info {
     justify-content: space-between;
     align-items: center;
-    border-bottom: var(--light-gray-color) solid 3px;
+    border-bottom: var(--neural-400) solid 3px;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
     padding-right: 10px;
@@ -24,7 +24,7 @@
 }
 
 .user-post {
-  border: var(--light-gray-color) solid 2px;
+  border: var(--neural-400) solid 2px;
   padding: 1.25rem 1.2rem 2rem 1.2rem;
   margin-bottom: 1rem;
 }
@@ -34,7 +34,7 @@
   height: 192px;
   position: relative;
   border-radius: 100%;
-  border: 1px solid var(--light-gray-color);
+  border: 1px solid var(--neural-400);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 

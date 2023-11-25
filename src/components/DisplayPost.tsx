@@ -41,17 +41,19 @@ export default function Posts({ posts }: { posts: postWithAuthor[] }) {
   }, [supabase, router]);
 
   return (
-    <div className="md:mr-2 mx-2 mt-1 md:w-1/2">
+    <>
       {posts.map((post) => (
         <Link href={`/post/${post.id}`} key={post.id} test-data="posts">
           <div className="post-wrapper">
-            <p className="text-2xl post-title" test-data="postTitle">
+            <p className="post-title" test-data="postTitle">
               {post.title}
             </p>
-            <p className="post-author mt-3">By - {post.author?.username}</p>
+            <p className="post-author mt-3 text-sm">
+              By - {post.author?.username}
+            </p>
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 }

@@ -4,7 +4,7 @@
 }
 
 .update-profile {
-  background-color: var(--green-color);
+  background-color: var(--green-700);
   color: white;
   padding: 5px 10px 5px 10px;
   border: white solid 2px;
@@ -12,7 +12,7 @@
 }
 
 .input-field {
-  background-color: var(--green-color);
+  background-color: var(--green-700);
   color: white;
   padding: 5px 10px 5px 10px;
   border: white solid 2px;

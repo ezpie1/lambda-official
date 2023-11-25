@@ -69,14 +69,11 @@ export default function Comment({ postId, userId }: CommentInfo) {
   /* eslint-disable max-len */
   return (
     <div className="flex justify-center">
-      <form
-        className="md:w-1/2 w-3/4"
-        onSubmit={(event) => handleComment(event)}
-      >
+      <form className="w-full" onSubmit={(event) => handleComment(event)}>
         <input
           type="text"
           placeholder="Comment..."
-          className="border-solid border-2 border-gray-300 rounded-md outline-none px-5 py-3 w-3/4"
+          className="border-solid border-2 border-gray-300 rounded-md outline-none px-5 py-3 sm:w-3/4"
           onChange={(e) => setCommentData(e.target.value)}
           value={commentData}
         />

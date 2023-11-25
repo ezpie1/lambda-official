@@ -1,11 +1,11 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // import stylesheet
 import "@/styles/newPostPage.css";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

@@ -19,6 +19,7 @@ export default async function BottomNav({
       .eq("id", userId)
       .single();
 
+    /* eslint-disable max-len */
     return (
       <nav className="bottom-navbar">
         <div className="main-navbar w-3/4 sm:w-1/2">

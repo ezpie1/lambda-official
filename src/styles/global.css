@@ -9,6 +9,7 @@
   /* primary color */
   --primary-300: #93aaff;
   --primary-400: #5e7ef2;
+  --primary-500: #365eeb;
   --primary-600: #1f43c4;
 
   /* Neural colors */
@@ -42,6 +43,10 @@
 
 .text-red-color {
   color: var(--red-500);
+}
+
+.text-neural-300 {
+  color: var(--neural-300);
 }
 
 .font-anonymous {

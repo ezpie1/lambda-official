@@ -24,16 +24,26 @@ export default async function Home() {
     redirect("/login");
   }
 
-  const { data: postsData } = await supabase
+  // get the posts in latest order
+  const { data: latestPosts } = await supabase
     .from("Blogs")
     .select("*, author: profiles(*)")
     .order("created_at", { ascending: false });
+
+  // get the posts in most liked order
+  const { data: popularPosts } = await supabase
+    .from("Blogs")
+    .select("*, author: profiles(*)")
+    .order("likes", { ascending: false });
 
   return (
     <div className="md:flex mt-10 mx-10 md:justify-between">
       <section className="md:w-1/2 w-full">
         <Suspense fallback={<p>Loading posts...</p>}>
-          <Posts posts={postsData || []} />
+          <Posts
+            latestPosts={latestPosts || []}
+            popularPosts={popularPosts || []}
+          />
         </Suspense>
       </section>
       <section className="md:block hidden">

@@ -3,7 +3,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 // importing the DisplayPost component
-import Posts from "@/components/DisplayPost";
+import SearchPosts from "./SearchResultPosts";
 
 // importing stylesheet
 import "@/styles/searchResultPage.css";
@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { query: string } }) {
     return (
       <div className="md:flex mt-10 md:justify-between mx-10">
         <section className="md:w-1/2 w-full">
-          <Posts posts={posts} />
+          <SearchPosts posts={posts} />
         </section>
         <section className="md:block hidden">
           <h1 className="info-badge">Coming soon...</h1>

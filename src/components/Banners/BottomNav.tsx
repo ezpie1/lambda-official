@@ -1,8 +1,16 @@
+// Import necessary libraries
 import "@/styles/bottomNavbar.css";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { cookies } from "next/headers";
 
+/**
+ * This is the bottom navbar component
+ *
+ * @param {string | undefined} userId - the id of the current logged in user
+ *
+ * @returns JSX.Element
+ */
 export default async function BottomNav({
   userId,
 }: {

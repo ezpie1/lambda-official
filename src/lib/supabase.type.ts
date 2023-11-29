@@ -16,6 +16,7 @@ export interface Database {
           id: string;
           title: string | null;
           user_id: string;
+          likes: number | null;
         };
         Insert: {
           content?: string | null;
@@ -23,6 +24,7 @@ export interface Database {
           id?: string;
           title?: string | null;
           user_id: string;
+          likes: number | null;
         };
         Update: {
           content?: string | null;
@@ -30,6 +32,7 @@ export interface Database {
           id?: string;
           title?: string | null;
           user_id?: string;
+          likes?: number | null;
         };
         Relationships: [
           {

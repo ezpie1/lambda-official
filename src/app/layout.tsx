@@ -33,7 +33,7 @@ export default async function RootLayout({
       </head>
       <body className="w-[100vw] overflow-x-hidden">
         {session && <NavBar />}
-        {children}
+        <main className="mb-20">{children}</main>
         {session && <BottomNav userId={userId} />}
         <Analytics />
       </body>

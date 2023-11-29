@@ -13,8 +13,34 @@ import { useRouter } from "next/navigation";
  */
 export default function Like({ post }: { post: postWithAuthor }) {
   // Setup supabase and router
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
   const router = useRouter();
+
+  // updated for updating the likes column of the current post
+  const updateLikesCount = async () => {
+    const count = post.likes;
+    console.log(count);
+
+    // if user has liked the post, then decrement the likes count
+    // else increment the likes count
+    if (post.user_liked_post) {
+      const newCount = count != null ? count - 1 : count;
+      console.log(newCount);
+
+      await supabase
+        .from("Blogs")
+        .update({ likes: newCount })
+        .eq("id", post.id);
+    } else {
+      const newCount = count != null ? count + 1 : count;
+      console.log(newCount);
+
+      await supabase
+        .from("Blogs")
+        .update({ likes: newCount })
+        .eq("id", post.id);
+    }
+  };
 
   // used for adding likes to a post by inserting new in the likes table
   const handleLikes = async () => {
@@ -36,6 +62,7 @@ export default function Like({ post }: { post: postWithAuthor }) {
 
         router.refresh();
       } else {
+        // add a new like to the post
         await supabase
           .from("Likes")
           .insert({ user_id: user?.id, post_id: post.id });
@@ -43,6 +70,9 @@ export default function Like({ post }: { post: postWithAuthor }) {
         // Once liked, refresh the page to update the like btn UI
         router.refresh();
       }
+
+      // update the likes count as per the user_liked_post variable
+      updateLikesCount();
     }
   };
 

@@ -36,9 +36,12 @@ export default function NewPost() {
 
     // If user exists, then only add post to the Blogs table
     if (user) {
-      const { status } = await supabase
-        .from("Blogs")
-        .insert({ content: postContent, title: postTitle, user_id: user.id });
+      const { status } = await supabase.from("Blogs").insert({
+        content: postContent,
+        title: postTitle,
+        user_id: user.id,
+        likes: 0,
+      });
 
       if (status === 201) {
         // get the newly added post's id and redirect the user to it
@@ -81,7 +84,7 @@ export default function NewPost() {
         </p>
       </div>
 
-      <button type="submit" className="post-btn">
+      <button type="submit" className="post-btn" test-data="submitBtn">
         Post
       </button>
     </form>

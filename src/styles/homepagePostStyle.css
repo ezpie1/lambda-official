@@ -17,3 +17,19 @@
   font-family: "Inter", sans-serif;
   font-weight: 100;
 }
+
+.post-type-changer {
+  color: var(--neural-300);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.post-type-changer:hover {
+  color: var(--primary-500);
+  font-size: large;
+  font-weight: bold;
+}
+
+.text-neural-900 {
+  color: var(--neural-900);
+}

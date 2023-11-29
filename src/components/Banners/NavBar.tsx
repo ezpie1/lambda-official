@@ -33,7 +33,7 @@ export default async function NavBar() {
   if (userInfo) {
     return (
       <nav className="flex navbar justify-around w-auto items-center">
-        <div className="logo-wrapper">
+        <div className="logo-wrapper sm:scale-100 scale-90">
           <Link href="/">
             <Image
               src="/logos/logo.svg"
@@ -43,11 +43,11 @@ export default async function NavBar() {
             />
           </Link>
         </div>
-        <div className="my-auto w-1/2">
+        <div className="my-auto w-1/2 sm:scale-100 scale-90">
           <Search />
         </div>
-        <div>
-          <Link href="/new-post" className="new-post-btn">
+        <div className="sm:scale-100 scale-90">
+          <Link href="/new-post" className="new-post-btn" test-data="newPost">
             <span>New Post</span>
           </Link>
         </div>

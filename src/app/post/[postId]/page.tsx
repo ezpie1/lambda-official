@@ -66,7 +66,9 @@ export default async function Page({ params }: { params: { postId: string } }) {
                 {post.author?.username}
               </Link>
             </p>
-            <p>{post.author?.description}</p>
+            <p className="font-inter text-sm text-neural-300">
+              {post.author?.description}
+            </p>
           </section>
         </section>
         <section>

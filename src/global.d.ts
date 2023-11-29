@@ -10,6 +10,6 @@ declare global {
   type postWithAuthor = Post & {
     author: Profile | null;
     user_liked_post?: boolean;
-    likes?: number;
+    likes?: number | null;
   };
 }

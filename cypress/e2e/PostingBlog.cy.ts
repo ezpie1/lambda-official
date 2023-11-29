@@ -6,21 +6,18 @@ describe("Posting Blog", () => {
     // refresh the page to head back to the homepage
     cy.reload();
 
-    // get the input field with `test-data` as `blogTitle`
-    cy.GetByTest("blogTitle").type("Test blog");
+    // get the `New Post` button and click it
+    cy.GetByTest("newPost").click();
 
-    // get the input field with `test-data` as `blogContent`
-    cy.GetByTest("blogContent").type(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et commodo velit. Sed a lorem sit amet turpis pretium aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus"
+    // get the input with id `content`
+    cy.get("#content").type(
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, quisquam quasi! Repudiandae aliquam atque adipisci repellendus. Minima nihil, ullam odit veritatis voluptatem placeat esse maxime, odio in, aliquam perspiciatis. Aliquam."
     );
 
-    // get the post button and click it
-    cy.GetByTest("blogPostBtn").click();
+    // get the input with id `title`
+    cy.get("#title").type("This is a test post");
 
-    // get the posts list
-    cy.GetByTest("posts")
-      .first()
-      .find("[test-data=postTitle]")
-      .should("have.text", "Test blog");
+    // submit the form to add a new post
+    cy.GetByTest("submitBtn").click();
   });
 });

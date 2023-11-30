@@ -39,6 +39,7 @@ form.search-bar {
 }
 
 .new-post-btn {
+  display: block ruby;
   background-color: var(--blue-900);
   color: var(--blue-500);
   border-radius: 10px;

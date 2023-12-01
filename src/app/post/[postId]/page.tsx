@@ -6,10 +6,9 @@ import Link from "next/link";
 // Import the LikeBtn and CommentSection components
 import Like from "@/components/Post/LikeBtn";
 import CommentSection from "@/components/Post/CommentSection";
-
+import Formatter from "@/components/Post/MarkupFormatter";
 // importing stylesheet
 import "@/styles/PostPage.css";
-import Formatter from "@/components/Post/MarkupFormatter";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

@@ -9,6 +9,7 @@ import CommentSection from "@/components/Post/CommentSection";
 
 // importing stylesheet
 import "@/styles/PostPage.css";
+import Formatter from "@/components/Post/MarkupFormatter";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -53,8 +54,12 @@ export default async function Page({ params }: { params: { postId: string } }) {
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 pb-10 post-divider">
           <section className="post p-5 md:w-1/2">
             <div className="mb-10">
-              <h1 className="font-anonymous mb-8">{post.title}</h1>
-              <p className="font-inter post-content">{post.content}</p>
+              <h1 className="font-anonymous mb-8 lg:text-5xl md:text-4xl text-3xl font-extrabold">
+                {post.title}
+              </h1>
+              <div className="post-content">
+                {post.content && <Formatter postContent={post.content} />}
+              </div>
             </div>
             <div>
               <Like post={post} />

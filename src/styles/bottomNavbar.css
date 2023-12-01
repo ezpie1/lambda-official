@@ -14,7 +14,7 @@
   overflow: hidden;
   position: fixed;
   bottom: 0;
-  border-radius: 23px 23px 0 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   backdrop-filter: blur(3px);
 }
 

@@ -9,7 +9,7 @@
 
 .form {
   border: var(--blue-500) solid 2px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 20px;
   margin-top: 10px;
 }
@@ -18,7 +18,7 @@
   border: var(--primary-400) solid 3px;
   color: var(--primary-400);
   padding: 5px 10px 5px 10px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   margin-top: 20px;
   transition: all 0.5s;
   transform: scale(1.09);

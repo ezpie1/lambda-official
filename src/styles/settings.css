@@ -8,7 +8,7 @@
   color: white;
   padding: 5px 10px 5px 10px;
   border: white solid 2px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
 }
 
 .input-field {
@@ -16,5 +16,5 @@
   color: white;
   padding: 5px 10px 5px 10px;
   border: white solid 2px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
 }

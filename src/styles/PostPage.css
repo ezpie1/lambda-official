@@ -2,11 +2,6 @@
   border: var(--neural-200) solid 1px;
 }
 
-.post > div > h1 {
-  font-size: 23px;
-  font-weight: bold;
-}
-
 .post-divider {
   border-bottom: 1px solid var(--neural-200);
 }
@@ -15,4 +10,82 @@
   border: var(--neural-200) solid 1px;
   height: fit-content;
   padding: 15px 20px;
+}
+
+/* Post content markdown styles */
+
+.post-content > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.post-content > h1 {
+  --font-size: 2.25rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > h2 {
+  --font-size: 1.875rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > h3 {
+  --font-size: 1.5rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > h4 {
+  --font-size: 1.25rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > h5 {
+  --font-size: 1rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > h6 {
+  --font-size: 0.875rem;
+
+  font-size: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.post-content > p > a {
+  color: var(--primary-500);
+  border-bottom: 1px solid transparent;
+  transition: all 1s;
+}
+
+.post-content > p > a:hover {
+  color: var(--primary-300);
+  border-color: var(--primary-300);
+}
+
+.post-content > blockquote {
+  display: flex;
+  align-items: center;
+  color: var(--neural-300);
+}
+
+.post-content > blockquote::before {
+  content: "";
+  width: 0.25rem;
+  height: 2rem;
+  background-color: var(--neural-700);
+  margin-right: 10px;
 }

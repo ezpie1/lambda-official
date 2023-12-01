@@ -15,7 +15,7 @@ form.search-bar {
   display: flex;
   padding: 5px;
   border: var(--gray-500) solid 1px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   outline: none;
 }
 
@@ -41,7 +41,7 @@ form.search-bar {
 .new-post-btn {
   background-color: var(--blue-900);
   color: var(--blue-500);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 6px;
   transition: all 1s;
 }
@@ -49,4 +49,7 @@ form.search-bar {
 .new-post-btn:hover {
   background-color: var(--blue-700);
   color: var(--neural-100);
+}
+
+.follow-btn {
 }

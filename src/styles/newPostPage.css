@@ -3,7 +3,7 @@
 
   background-color: var(--neural-200-20);
   border: var(--neural-200) solid 1px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 
 .meta-data {
@@ -36,7 +36,7 @@
   font-size: 2rem;
   padding: 3px 22px;
   margin-top: 2rem;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   transition: all 0.5s;
 }
 

@@ -33,10 +33,17 @@
   /* blue color */
   --blue-500: #37a0eb;
   --blue-700: #0d64a3;
+  --blue-800: #064c7f;
   --blue-900: #002c4d;
 
   /* red color */
   --red-500: #eb3636;
+
+  /* border radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 23px;
+  --radius-full: 100%;
 }
 
 /* common styles */
@@ -63,7 +70,7 @@
   padding: 5px 10px 5px 10px;
   outline: none;
   border: white solid 2px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   transition: all 0.5s;
 }
 

@@ -3,6 +3,7 @@
 // Importing necessary libraries
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 /**
  * Like button for adding likes in a post
@@ -25,7 +26,6 @@ export default function Like({ post }: { post: postWithAuthor }) {
     // else increment the likes count
     if (post.user_liked_post) {
       const newCount = count != null ? count - 1 : count;
-      console.log(newCount);
 
       await supabase
         .from("Blogs")
@@ -33,7 +33,6 @@ export default function Like({ post }: { post: postWithAuthor }) {
         .eq("id", post.id);
     } else {
       const newCount = count != null ? count + 1 : count;
-      console.log(newCount);
 
       await supabase
         .from("Blogs")
@@ -59,22 +58,38 @@ export default function Like({ post }: { post: postWithAuthor }) {
           .from("Likes")
           .delete()
           .match({ user_id: user.id, post_id: post.id });
-
-        router.refresh();
       } else {
         // add a new like to the post
         await supabase
           .from("Likes")
           .insert({ user_id: user?.id, post_id: post.id });
-
-        // Once liked, refresh the page to update the like btn UI
-        router.refresh();
       }
 
       // update the likes count as per the user_liked_post variable
       updateLikesCount();
     }
   };
+
+  useEffect(() => {
+    const channel = supabase
+    .channel("realtime Likes")
+    .on(
+      "postgres_changes",
+      {
+        event: "*",
+        schema: "public",
+        table: "Likes",
+      },
+      () => {
+        router.refresh();
+      }
+    )
+    .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    }
+  }, [supabase, router]);
 
   /* eslint-disable max-len */
   return (

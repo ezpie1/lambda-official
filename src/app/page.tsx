@@ -37,6 +37,7 @@ export default async function Home() {
     .select("*, author: profiles(*)")
     .order("likes", { ascending: false });
 
+  /* eslint-disable max-len */
   return (
     <RenderedContent latestPostsList={latestPosts} popularPostsList={popularPosts} />
   );

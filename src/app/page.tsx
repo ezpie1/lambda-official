@@ -20,6 +20,7 @@ export default async function Home() {
     data: { session },
   } = await supabase.auth.getSession();
 
+  // this is used to conform if the user viewing the homepage is logined in or not
   if (!session) {
     redirect("/login");
   }
@@ -37,12 +38,18 @@ export default async function Home() {
     .order("likes", { ascending: false });
 
   return (
+    <RenderedContent latestPostsList={latestPosts} popularPostsList={popularPosts} />
+  );
+}
+
+function RenderedContent({latestPostsList, popularPostsList}: {latestPostsList: postWithAuthor[], popularPostsList: postWithAuthor[]}) {
+  return (
     <div className="md:flex mt-10 mx-10 md:justify-between">
       <section className="md:w-1/2 w-full">
         <Suspense fallback={<p>Loading posts...</p>}>
           <Posts
-            latestPosts={latestPosts || []}
-            popularPosts={popularPosts || []}
+            latestPosts={latestPostsList || []}
+            popularPosts={popularPostsList || []}
           />
         </Suspense>
       </section>

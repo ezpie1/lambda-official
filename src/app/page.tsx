@@ -39,7 +39,7 @@ export default async function Home() {
 
   /* eslint-disable max-len */
   return (
-    <RenderedContent latestPostsList={latestPosts} popularPostsList={popularPosts} />
+    <RenderedContent latestPostsList={latestPosts || []} popularPostsList={popularPosts || []} />
   );
 }
 

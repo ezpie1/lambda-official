@@ -7,13 +7,16 @@
 
 :root {
   /* primary color */
-  --primary-300: #93aaff;
+  --primary-100: #E8F6FF;
+  --primary-200: #C3E8FF;
+  --primary-300: #80CEFF;
   --primary-400: #5e7ef2;
   --primary-500: #365eeb;
   --primary-600: #1f43c4;
 
   /* Neural colors */
-  --neural-100: #fbfbfc;
+  --neural-white: #FFFFFF;
+  --neural-100: #EAEAEA;
   --neural-200: #d6d6d9;
   --neural-300: #a8a8ad;
   --neural-400: #868690;
@@ -44,6 +47,14 @@
   --radius-md: 10px;
   --radius-lg: 23px;
   --radius-full: 100%;
+
+  /* alpha colors */
+  --black-25: rgba(0, 0, 0, 0.25);
+}
+
+/* The default background color for the app */
+body {
+  background-color: var(--primary-100);
 }
 
 /* common styles */

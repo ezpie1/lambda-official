@@ -56,7 +56,7 @@ export default async function CommentSection({ post }: { post: string }) {
           <div key={comment.id} className="flex mt-5 items-center">
             <section>
               <Image
-                src="https://ezpie.vercel.app/favicon.svg"
+                src="/icons/profile-icon.svg"
                 alt="user avatar"
                 width={100}
                 height={100}

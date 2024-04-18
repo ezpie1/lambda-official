@@ -6,9 +6,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import Posts from "@/components/DisplayPost";
 
-// Post style import
-import "@/styles/homepagePostStyle.css";
-
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
 
@@ -45,18 +42,13 @@ export default async function Home() {
 
 function RenderedContent({latestPostsList, popularPostsList}: {latestPostsList: postWithAuthor[], popularPostsList: postWithAuthor[]}) {
   return (
-    <div className="md:flex mt-10 mx-10 md:justify-between">
-      <section className="md:w-1/2 w-full">
+    <div className="m-12 flex flex-col items-center">
         <Suspense fallback={<p>Loading posts...</p>}>
           <Posts
             latestPosts={latestPostsList || []}
             popularPosts={popularPostsList || []}
           />
         </Suspense>
-      </section>
-      <section className="md:block hidden">
-        <h1 className="info-badge">Coming soon...</h1>
-      </section>
     </div>
   );
 }

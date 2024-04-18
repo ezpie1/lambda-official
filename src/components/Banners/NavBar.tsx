@@ -32,8 +32,8 @@ export default async function NavBar() {
   // * If their is a user, then continue
   if (userInfo) {
     return (
-      <nav className="flex navbar justify-around w-auto items-center">
-        <div className="logo-wrapper">
+      <nav className="navbar">
+        <div className="logo-wrapper xl:m-auto">
           <Link href="/">
             <Image
               src="/logos/logo.svg"
@@ -43,19 +43,48 @@ export default async function NavBar() {
             />
           </Link>
         </div>
-        <div className="my-auto w-1/2 ml-2">
+        <div className="my-auto w-1/2 xl:w-full">
           <Search />
         </div>
-        <div className="ml-2">
-          <Link
-            href="/new-post"
-            className="new-post-btn sm:text-xl"
-            test-data="newPost"
-          >
-            <span>New Post</span>
-          </Link>
+        <div className="md:visible invisible"></div>
+        <div className="ml-2 justify-self-end xl:m-auto">
+          <div className="dropdown">
+            <span>
+              <Image 
+                src="/icons/profile-icon.svg"
+                alt="User Avatar"
+                width={50}
+                height={50}
+              />
+            </span>
+            <ul className="dropdown-menu">
+              
+              <Link href={`/user/${userInfo.username}`}>
+              <div className="user-detail-navbar">
+                  <Image 
+                    src="/icons/profile-icon.svg"
+                    alt="User Avatar"
+                    width={50}
+                    height={50}
+                  />
+                  <span>{userInfo.username}</span>
+                </div>
+              </Link>
+              <Link href={`/user/${userInfo.username}`}>
+                <li>
+                  Profile
+                </li>
+              </Link>
+              <Link href='/settings/profile'>
+                <li>
+                  Settings
+                </li>
+              </Link>
+            </ul>
+          </div>
         </div>
       </nav>
     );
   }
 }
+

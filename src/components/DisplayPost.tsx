@@ -1,7 +1,7 @@
 "use client";
 
 // Importing necessary libraries and hooks
-import { createClientComponentClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -53,6 +53,7 @@ export default function Posts({ latestPosts, popularPosts }: Props) {
     };
   }, [supabase, router]);
 
+  /* eslint-disable max-len */
   return (
     <>
       <div className="mb-16 w-[50vw]">
@@ -86,8 +87,8 @@ function PostDisplayFunction({ posts }: { posts: postWithAuthor[] }) {
   return (
     <>
       {posts.map((post) => (
-        <div className="post-container">
-          <Link href={`/post/${post.id}`} key={post.id} test-data="posts">
+        <div className="post-container" key={post.id} >
+          <Link href={`/post/${post.id}`} test-data="posts">
             <div className="post-wrapper">
               <p className="post-author text-sm">
                 {post.author?.username}

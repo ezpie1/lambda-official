@@ -88,26 +88,3 @@ export default async function NavBar() {
   }
 }
 
-/**
- * Helper funtion to get username from database
- *
- * @returns {string | null} currentUser
- *
- */
-async function GetUserName() {
-  const supabase = createServerComponentClient<Database>({ cookies });
-
-  const { data } = await supabase.auth.getUser();
-  const userId = data.user?.id;
-
-  if (userId) {
-    const {data: currentUser} = await supabase
-    .from("profiles")
-    .select("username")
-    .eq("id", userId)
-    .single();
-    return currentUser;
-  }
-    
-    return null;
-}

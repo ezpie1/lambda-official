@@ -34,20 +34,23 @@ export default function SearchPosts({ posts }: { posts: postWithAuthor[] }) {
 
   return (
     <>
-      <div>
-        {posts.map((post) => (
-          <Link href={`/post/${post.id}`} key={post.id} test-data="posts">
+      {posts.map((post) => (
+        <div className="post-container" key={post.id}>
+          <Link href={`/post/${post.id}`} test-data="posts">
             <div className="post-wrapper">
+              <p className="post-author text-sm">
+                {post.author?.username}
+              </p>
               <p className="post-title" test-data="postTitle">
                 {post.title}
               </p>
-              <p className="post-author mt-3 text-sm">
-                By - {post.author?.username}
+              <p className="line-clamp-2 post-content">
+                {post.content}
               </p>
             </div>
           </Link>
-        ))}
-      </div>
+        </div>
+      ))}
     </>
   );
 }

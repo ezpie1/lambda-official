@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "@/styles/global.css";
 import NavBar from "@/components/Banners/NavBar";
-import BottomNav from "@/components/Banners/BottomNav";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -21,10 +20,6 @@ export default async function RootLayout({
     data: { session },
   } = await supabase.auth.getSession();
 
-  // used by the bottomNav component for redirecting purpose
-  const { data } = await supabase.auth.getUser();
-  const userId = data.user?.id;
-
   return (
     <html lang="en">
       <head>
@@ -34,7 +29,6 @@ export default async function RootLayout({
       <body className="w-[100vw] overflow-x-hidden">
         {session && <NavBar />}
         <main className="mb-20">{children}</main>
-        {session && <BottomNav userId={userId} />}
         <Analytics />
       </body>
     </html>

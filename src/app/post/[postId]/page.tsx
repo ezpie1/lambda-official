@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 pb-10 post-divider">
           <section className="post p-5 md:w-1/2">
             <div className="mb-10">
-              <h1 className="font-anonymous mb-8 lg:text-5xl md:text-4xl text-3xl font-extrabold">
+              <h1 className="font-anonymous mb-8 text-4xl font-extrabold">
                 {post.title}
               </h1>
               <div className="post-content">

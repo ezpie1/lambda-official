@@ -1,5 +1,6 @@
 // importing necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Suspense } from "react";
 import { cookies } from "next/headers";
 
 // importing the DisplayPost component
@@ -34,15 +35,12 @@ export default async function Page({ params }: { params: { query: string } }) {
 
   if (posts) {
     return (
-      <div className="md:flex mt-10 md:justify-between mx-10">
-        <section className="md:w-1/2 w-full">
-          <SearchPosts posts={posts} />
-        </section>
-        <section className="md:block hidden">
-          <h1 className="info-badge">Coming soon...</h1>
-        </section>
-      </div>
-    );
+        <div className="m-12 flex flex-col items-center">
+          <Suspense fallback={<p>Loading posts...</p>}>
+            <SearchPosts posts={posts}/>
+          </Suspense>
+        </div>
+      );
   } else {
     console.log(error);
   }

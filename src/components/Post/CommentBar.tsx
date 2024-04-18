@@ -73,7 +73,7 @@ export default function Comment({ postId, userId }: CommentInfo) {
         <input
           type="text"
           placeholder="Comment..."
-          className="border-solid border-2 border-gray-300 rounded-md outline-none px-5 py-3 sm:w-3/4"
+          className="shadow-xl rounded-md outline-none px-5 py-3 sm:w-3/4"
           onChange={(e) => setCommentData(e.target.value)}
           value={commentData}
         />

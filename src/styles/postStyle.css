@@ -11,7 +11,6 @@
 
 .post-container {
   border-top: 1px solid var(--primary-300);
-  width: 50vw;
 }
 
 .post-title {
@@ -30,4 +29,22 @@
 
 .post-content {
   color: gray;
+}
+
+.post-type-changer {
+  color: var(--neural-300);
+  border-radius: 2rem;
+  padding: 10px 1rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: medium;
+}
+
+.post-type-changer:hover {
+  background-color: white;
+}
+
+.post-type-changer-selected {
+  background-color: white;
+  font-weight: 700;
 }

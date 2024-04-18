@@ -23,6 +23,17 @@ h6 {
   font-weight: 700;
 }
 
+.post-content > h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+ margin: 16px; 
+}
+
+
 .post-content > h1 {
   --font-size: 2.25rem;
 
@@ -77,15 +88,26 @@ h6 {
 }
 
 .post-content > blockquote {
-  display: flex;
-  align-items: center;
-  color: var(--neural-300);
+  border-left: 10px solid #ccc;
+  margin: 1.5rem 10px;
+  padding: 0.5rem 10px;
+  font-style: italic;
+}
+
+.post-content > blockquote p {
+  display: inline;
 }
 
 .post-content > blockquote::before {
-  content: "";
-  width: 0.25rem;
-  height: 2rem;
-  background-color: var(--neural-700);
-  margin-right: 10px;
+  content: open-quote;
+  font-size: 2rem;
+  line-height: 0.1rem;
+  vertical-align: -0.4rem;
+}
+
+.post-content > blockquote::after {
+  content: close-quote;
+  font-size: 2rem;
+  line-height: 0.1rem;
+  vertical-align: -0.4rem;
 }

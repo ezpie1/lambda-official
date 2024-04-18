@@ -1,10 +1,14 @@
 "use client";
 
 // Importing necessary libraries and hooks
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
+// Style
+import "@/styles/postStyle.css"
+import Formatter from "./Post/MarkupFormatter";
 
 // an interface for latest and popular posts types
 interface Props {
@@ -51,27 +55,23 @@ export default function Posts({ latestPosts, popularPosts }: Props) {
 
   return (
     <>
-      <div className="mb-10">
+      <div className="mb-16 w-[50vw]">
         <ul className="flex text-sm">
           <li
-            className={`post-type-changer ${
-              latestSelected && "text-neural-900 font-bold"
-            }`}
+            className={`post-type-changer ${latestSelected && 'post-type-changer-selected'}`}
             onClick={() => setLatestSelected(true)}
           >
             Latest
           </li>
           <li
-            className={`post-type-changer ml-5 ${
-              !latestSelected && "text-neural-900 font-bold"
-            }`}
+            className={`post-type-changer ${!latestSelected && 'post-type-changer-selected'}`}
             onClick={() => setLatestSelected(false)}
           >
             Popular
           </li>
         </ul>
       </div>
-      <div>
+      <div className="w-[60vw]">
         {latestSelected ? (
           <PostDisplayFunction posts={latestPosts} />
         ) : (
@@ -86,16 +86,21 @@ function PostDisplayFunction({ posts }: { posts: postWithAuthor[] }) {
   return (
     <>
       {posts.map((post) => (
-        <Link href={`/post/${post.id}`} key={post.id} test-data="posts">
-          <div className="post-wrapper">
-            <p className="post-title" test-data="postTitle">
-              {post.title}
-            </p>
-            <p className="post-author mt-3 text-sm">
-              By - {post.author?.username}
-            </p>
-          </div>
-        </Link>
+        <div className="post-container">
+          <Link href={`/post/${post.id}`} key={post.id} test-data="posts">
+            <div className="post-wrapper">
+              <p className="post-author text-sm">
+                {post.author?.username}
+              </p>
+              <p className="post-title" test-data="postTitle">
+                {post.title}
+              </p>
+              <p className="line-clamp-2 post-content">
+                {post.content && <Formatter postContent={post.content} />}
+              </p>
+            </div>
+          </Link>
+        </div>
       ))}
     </>
   );

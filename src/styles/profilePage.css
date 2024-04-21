@@ -6,7 +6,7 @@
   .profile-info {
     justify-content: center;
     align-items: center;
-    border-right: var(--neural-400) solid 3px;
+    border-right: var(--primary-300) solid 3px;
     padding: 0;
   }
 }
@@ -15,7 +15,7 @@
   .profile-info {
     justify-content: space-between;
     align-items: center;
-    border-bottom: var(--neural-400) solid 3px;
+    border-bottom: var(--primary-300) solid 3px;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
     padding-right: 10px;
@@ -24,9 +24,15 @@
 }
 
 .user-post {
-  border: var(--neural-400) solid 2px;
-  padding: 1.25rem 1.2rem 2rem 1.2rem;
+  border: var(--primary-300) solid 2px;
+  padding: 1.25rem 1.2rem;
   margin-bottom: 1rem;
+  border-radius: 1rem;
+  transition: all 1s;
+}
+
+.user-post:hover {
+  background-color: white;
 }
 
 .avatar-preview {

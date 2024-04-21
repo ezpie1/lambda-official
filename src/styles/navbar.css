@@ -1,8 +1,8 @@
 .navbar {
   background-color: var(--primary-200);
   padding: 6px 2rem;
-  display: grid;
-  grid-template-columns: minmax(0, 0.25fr) minmax(0, 2fr) minmax(0, 1fr) minmax(0, 0.2fr);
+  display: flex;
+  justify-content: space-around;
 }
 
 form.search-bar {

@@ -5,6 +5,8 @@ import "@/styles/profilePage.css"; // stylesheet
 import Link from "next/link";
 import Image from "next/image";
 
+import Formatter from "@/components/Post/MarkupFormatter";
+
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
 
@@ -39,6 +41,7 @@ export default async function UserProfile({
       .eq("user_id", user?.id)
       .order("created_at", { ascending: false });
 
+    /* eslint-disable max-len */
     return (
       <div className="block md:flex h-max my-9">
         <div className="md:w-1/2 md:h-screen profile-info md:flex-col flex-row">
@@ -63,7 +66,7 @@ export default async function UserProfile({
             <Link href={`/post/${post.id}`} key={post.id}>
               <div className="user-post w-full h-40">
                 <p className="font-anonymous text-3xl mb-5">{post.title}</p>
-                <p className="font-inter line-clamp-1">{post.content}</p>
+                <p className="font-inter line-clamp-2">{post.content && <Formatter postContent={post.content} />}</p>
               </div>
             </Link>
           ))}

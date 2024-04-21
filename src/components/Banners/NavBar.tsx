@@ -31,6 +31,7 @@ export default async function NavBar() {
 
   // * If their is a user, then continue
   if (userInfo) {
+    /* eslint-disable max-len */
     return (
       <nav className="navbar">
         <div className="logo-wrapper xl:m-auto">
@@ -43,10 +44,18 @@ export default async function NavBar() {
             />
           </Link>
         </div>
-        <div className="my-auto w-1/2 xl:w-full">
+        <div className="m-auto w-1/2">
           <Search />
         </div>
-        <div className="md:visible invisible"></div>
+        <div className="mx-auto">
+          <Link href="/new-post">
+            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+              <g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="#80CEFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+            </svg>
+          </Link>
+        </div>
         <div className="ml-2 justify-self-end xl:m-auto">
           <div className="dropdown">
             <span>

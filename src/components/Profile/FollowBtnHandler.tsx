@@ -1,5 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers";
+
 import FollowBtn from "./FollowBtn";
 
 interface Props {
@@ -12,7 +13,8 @@ interface Props {
  * it only get's the logged in user's username and current profile user's 
  * username and passes those values down to the FollowBtn component
  * 
- * @param {currentProfileUsername} string - the current profile user's username. This value is passed down to the FollowBtn component
+ * @param {currentProfileUsername} string - the current profile user's 
+ * username. This value is passed down to the FollowBtn component
  * @returns 
  */
 export default async function FollowCoreBtn({ currentProfileUsername }: Props) {
@@ -28,6 +30,7 @@ export default async function FollowCoreBtn({ currentProfileUsername }: Props) {
   .eq("id", currentLoggedInUserId)
   .single();
 
+  /* eslint-disable max-len */
   return (
     <FollowBtn currentProfileUsername={currentProfileUsername} currentLoggedInUsername={String(currentLoggedInUser?.username)} />
   )

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Formatter from "@/components/Post/MarkupFormatter";
+import FollowCoreBtn from "@/components/Profile/FollowBtnHandler";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -32,6 +33,13 @@ export default async function UserProfile({
     .eq("username", params.username)
     .single();
 
+  // getting the number of followers the current profile user has
+  const { data: currentProfileUserFollowers } = await supabase
+  .from("profiles")
+  .select("followers")
+  .eq("username", params.username)
+  .single();
+
   // If we have the information then continue
   if (user) {
     // Get the posts written by the user in descending order
@@ -57,8 +65,18 @@ export default async function UserProfile({
             </div>
           </div>
           <div className="md:px-5 ml-2">
-            <p className="font-anonymous text-2xl mb-3">{user?.username}</p>
-            <p className="font-inter">{user?.description}</p>
+            <div>
+              <p className="font-anonymous text-2xl mb-3">
+                {user?.username}
+              </p>
+              <p className="font-inter">{user?.description}</p>
+              <p className="follower-count my-5">
+                {currentProfileUserFollowers?.followers?.length} Followers
+              </p>
+            </div>
+            <div>
+              <FollowCoreBtn currentProfileUsername={params.username}/>
+            </div>
           </div>
         </div>
         <div className="mx-5 md:mt-0 mt-5 md:w-full">

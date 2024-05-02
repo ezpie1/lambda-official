@@ -54,13 +54,19 @@
 }
 
 .follow-btn {
-  background-color: var(--blue-500);
-  color: var(--blue-800);
-  border-radius: var(--radius-lg);
+  background-color: var(--primary-300);
+  width: 100%;
   padding: 0.5rem 2rem;
+  border-radius: 1rem;
 }
 
 .follow-btn:hover {
   background-color: var(--blue-700);
   color: var(--neural-100);
+}
+
+.follower-count {
+  color: var(--neural-400);
+  font-size: 0.85rem;
+  font-weight: 700;
 }

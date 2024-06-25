@@ -2,7 +2,7 @@
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   currentProfileUsername: string;
@@ -63,11 +63,8 @@ export default function FollowBtn({ currentProfileUsername, currentLoggedInUsern
     }
   }
 
-  // check's every time the page reloads if the user is following the current profile user
-  useEffect(() => {
-    checkIfUserIsAlreadyFollowing();
-  }, [])
-  
+  // call the function without useEffect because of eslint
+  checkIfUserIsAlreadyFollowing();
 
   /**
    * This is the main function that handle's the following mechanism

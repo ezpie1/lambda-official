@@ -1,10 +1,9 @@
 // next redirect and cookies
-import { Suspense } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import Posts from "@/components/DisplayPost";
+import Posts from "@/components/HomePage/DisplayPost";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -17,7 +16,7 @@ export default async function Home() {
     data: { session },
   } = await supabase.auth.getSession();
 
-  // this is used to conform if the user viewing the homepage is logined in or not
+  // this is used to conform if the user viewing the homepage is logged in or not
   if (!session) {
     redirect("/login");
   }
@@ -43,12 +42,10 @@ export default async function Home() {
 function RenderedContent({latestPostsList, popularPostsList}: {latestPostsList: postWithAuthor[], popularPostsList: postWithAuthor[]}) {
   return (
     <div className="m-12 flex flex-col items-center">
-        <Suspense fallback={<p>Loading posts...</p>}>
-          <Posts
-            latestPosts={latestPostsList || []}
-            popularPosts={popularPostsList || []}
-          />
-        </Suspense>
+      <Posts
+        latestPosts={latestPostsList || []}
+        popularPosts={popularPostsList || []}
+      />
     </div>
   );
 }

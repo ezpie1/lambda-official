@@ -2,13 +2,13 @@
 
 // Importing necessary libraries and hooks
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 // Style
 import "@/styles/postStyle.css"
-import Formatter from "./Post/MarkupFormatter";
+import UserOrganicFeed from "./OrganicFeedGenerator";
+import PostDisplayFunction from "./PostDisplayRenderer";
 
 // an interface for latest and popular posts types
 interface Props {
@@ -25,7 +25,8 @@ interface Props {
  * @returns JSX.Element
  */
 export default function Posts({ latestPosts, popularPosts }: Props) {
-  const [latestSelected, setLatestSelected] = useState(true);
+  const [latestSelected, setLatestSelected] = useState(false);
+  const [feedSelected, setFeedSelected] = useState(true);
 
   // Setup supabase and router
   const supabase = createClientComponentClient();
@@ -59,50 +60,41 @@ export default function Posts({ latestPosts, popularPosts }: Props) {
       <div className="mb-16 w-[50vw]">
         <ul className="flex text-sm">
           <li
-            className={`post-type-changer ${latestSelected && 'post-type-changer-selected'}`}
-            onClick={() => setLatestSelected(true)}
+            className={`post-type-changer ${feedSelected && !latestSelected && 'post-type-changer-selected'}`}
+            onClick={() => {
+              setLatestSelected(false) 
+              setFeedSelected(true)
+            }}
+          >
+            Feed
+          </li>
+          <li
+            className={`post-type-changer ${!feedSelected && latestSelected && 'post-type-changer-selected'}`}
+            onClick={() => {
+              setLatestSelected(true) 
+              setFeedSelected(false)
+            }}
           >
             Latest
           </li>
           <li
-            className={`post-type-changer ${!latestSelected && 'post-type-changer-selected'}`}
-            onClick={() => setLatestSelected(false)}
+            className={`post-type-changer ${!feedSelected && !latestSelected && 'post-type-changer-selected'}`}
+            onClick={() => {
+              setLatestSelected(false) 
+              setFeedSelected(false)
+            }}
           >
             Popular
           </li>
         </ul>
       </div>
+      <Suspense fallback={<p>Loading posts...</p>}>
       <div className="w-[60vw]">
-        {latestSelected ? (
-          <PostDisplayFunction posts={latestPosts} />
-        ) : (
-          <PostDisplayFunction posts={popularPosts} />
-        )}
+        {feedSelected && !latestSelected && <UserOrganicFeed />}
+        {!feedSelected && latestSelected && <PostDisplayFunction posts={latestPosts} />}
+        {!feedSelected && !latestSelected && <PostDisplayFunction posts={popularPosts} />}
       </div>
-    </>
-  );
-}
-
-function PostDisplayFunction({ posts }: { posts: postWithAuthor[] }) {
-  return (
-    <>
-      {posts.map((post) => (
-        <div className="post-container" key={post.id} >
-          <Link href={`/post/${post.id}`} test-data="posts">
-            <div className="post-wrapper">
-              <p className="post-author text-sm">
-                {post.author?.username}
-              </p>
-              <p className="post-title" test-data="postTitle">
-                {post.title}
-              </p>
-              <p className="line-clamp-2 post-content">
-                {post.content && <Formatter postContent={post.content} />}
-              </p>
-            </div>
-          </Link>
-        </div>
-      ))}
+      </Suspense>
     </>
   );
 }

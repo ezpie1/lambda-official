@@ -34,13 +34,23 @@ export default function NewPost() {
       data: { user },
     } = await supabase.auth.getUser();
 
+
+    // need to get the username of author for `author` column
+    const { data: author } = await supabase
+    .from("profiles")
+    .select("username")
+    .eq("id", String(user?.id))
+    .single();
+
     // If user exists, then only add post to the Blogs table
     if (user) {
       const { status } = await supabase.from("Blogs").insert({
         content: postContent,
         title: postTitle,
         user_id: user.id,
+        author: author?.username,
         likes: 0,
+        // author: 
       });
 
       if (status === 201) {

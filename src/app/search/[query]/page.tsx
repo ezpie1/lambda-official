@@ -41,7 +41,5 @@ export default async function Page({ params }: { params: { query: string } }) {
           </Suspense>
         </div>
       );
-  } else {
-    console.log(error);
   }
 }

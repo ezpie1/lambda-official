@@ -20,7 +20,6 @@ export default function Like({ post }: { post: postWithAuthor }) {
   // updated for updating the likes column of the current post
   const updateLikesCount = async () => {
     const count = post.likes;
-    console.log(count);
 
     // if user has liked the post, then decrement the likes count
     // else increment the likes count

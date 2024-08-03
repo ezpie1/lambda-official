@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { query: string } }) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
   // Get the posts that have the title similar to the search query
-  const { data: posts, error } = await supabase
+  const { data: posts } = await supabase
     .from("Blogs")
     .select("*, author: profiles(*)")
     .ilike("title", `%${query}%`)

@@ -29,7 +29,7 @@ export default async function UserProfile({
   // Get information about the user, using their username
   const { data: user } = await supabase
     .from("profiles")
-    .select("*")
+    .select("id, description, username")
     .eq("username", params.username)
     .single();
 

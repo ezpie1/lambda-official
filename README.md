@@ -21,6 +21,8 @@ so that they can show you relevant ads and make you buy stuff you don't even wan
 traditional social media platforms use AI models to show you the most relevant and most highly clicked posts. Lambda has concerns about that, Lambda wants to make your online presence
 as healthy as it can, to prevent you from spending too much time on social media, but not entirely give up on it, lambda generates your feed using nothing more than a list of `followee`, this is nothing more then a list of users you follow if you are not following anyone, lambda will not generate a feed for you and you would need to follow someone to generate a feed. Lambda simply takes your `followee` list and gets the latest posts from each user you are following and shows you those, thus making sure you are not given promoted content, high click rate posts, or any kind of other stuff.
 
+---
+
 ### Non-targeted advertisements(after incorporation)
 Lambda believes that advertisers have too much control over what social media users can see on a platform, they are second in control after the company itself. The majority of social media runs on ads, which makes those platforms keep their advertisers more happy than their users, this leads to methods of using users as a way of making more money.
 
@@ -54,7 +56,9 @@ Now **B** pays $0.1/click.
 This method comes with loses, **B** doesn't get insight on how much competitors are paying and who their competitors are. No competitor insight for click advertisement.
 
 #### What's ad space?
-All empty white spaces next to blogs on the right are ad spaces, each blog has an ad space on its right, it's usually a small portion of the actual content so won't be that distractive.
+All empty white spaces next to blogs on the right are ad spaces, each blog has an ad space on its right, it's usually a small portion of the actual content so won't be that destructive.
+
+---
 
 ### Human mods
 

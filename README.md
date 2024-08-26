@@ -21,6 +21,8 @@ so that they can show you relevant ads and make you buy stuff you don't even wan
 traditional social media platforms use AI models to show you the most relevant and most highly clicked posts. Lambda has concerns about that, Lambda wants to make your online presence
 as healthy as it can, to prevent you from spending too much time on social media, but not entirely give up on it, lambda generates your feed using nothing more than a list of `followee`, this is nothing more then a list of users you follow if you are not following anyone, lambda will not generate a feed for you and you would need to follow someone to generate a feed. Lambda simply takes your `followee` list and gets the latest posts from each user you are following and shows you those, thus making sure you are not given promoted content, high click rate posts, or any kind of other stuff.
 
+---
+
 ### Non-targeted advertisements(after incorporation)
 Lambda believes that advertisers have too much control over what social media users can see on a platform, they are second in control after the company itself. The majority of social media runs on ads, which makes those platforms keep their advertisers more happy than their users, this leads to methods of using users as a way of making more money.
 
@@ -54,7 +56,9 @@ Now **B** pays $0.1/click.
 This method comes with loses, **B** doesn't get insight on how much competitors are paying and who their competitors are. No competitor insight for click advertisement.
 
 #### What's ad space?
-All empty white spaces next to blogs on the right are ad spaces, each blog has an ad space on its right, it's usually a small portion of the actual content so won't be that distractive.
+All empty white spaces next to blogs on the right are ad spaces, each blog has an ad space on its right, it's usually a small portion of the actual content so won't be that destructive.
+
+---
 
 ### Human mods
 
@@ -82,11 +86,15 @@ But these have their downfalls and disadvantages.
 
 **Decentralized:** Decentralized social media platforms aim to remove censorship, they are made to compete with platforms like X, and they don't tend to focus much on large scale but act as small individual entities that can be used separately. They also don't tend to add much features on the platform because each platform can have a unique feature but follows the same protocol throughout.
 
+---
+
 ### Moderation
 
 **Lambda:** Though Lambda is currently a prototype for gaining traction and validating the idea, it is planned to implement a moderation system in which anyone who applies, with certain criteria reached, will be given moderation access, this would allow the community to moderate content flow in the platform.
 
 **Decentralized:** Aim to avoid centralized content moderation, but because of this approach, it can be challenging to address illegal or harmful content. This can lead to the free flow of illegal content on the platforms.
+
+---
 
 ### Technical Complexity
 
@@ -94,14 +102,13 @@ But these have their downfalls and disadvantages.
 
 **Decentralized:** To use nostr or any other decentralized platform it requires a high level of technical understanding. Users need to manage private keys, and wallet addresses, and understand blockchain technology. This can be intimidating and confusing for the majority of non-technical species of humans, thus limiting the platform’s accessibility.
 
+---
+
 ### Feature and user experiences
 
 **Lambda:** As mentioned before lambda is a prototype of what the real product would be, it does not have all the functionalities of a fully functional platform. Though some features might be not available in the prototype, would be available in the production-ready version, such as community feature(from Reddit), short nuntius, Latin for message(from X), and many other features that would be added to the real product.
 
 **Decentralized:** Decentralized social media platforms do not offer the same level of features and user experiences as more established, centralized platforms do. This can make it less appealing for users who are accustomed to the convenience and polish of mainstream social media networks. Also taking into account, majority of these platforms act as alternatives only to X and not the entire social media market.
-
-
-Of course, there can be good reasons to use decentralized platforms, but if you want to feel off traditional social media, but without needing to worry about your privacy or well-being, than lambda is your choice.
 
 Lambda wants to make your online experience better, focus on the stuff you want, not what you don't want but still keep getting.
 

@@ -130,26 +130,28 @@ If it's a code solution that you might have, just use the [contribute.md file](h
 
 ## What's new?
 
-To make Lambda a reality, lambda is following this 3 month long milestone, in which it would aim to get at least 1K users.
+To make Lambda a reality, lambda is following this 3 month long milestone, in which it would aim to get at least 5K users.
 
 ### Why does this matter?
 
 It matters cause this would help in many ways.
 
-Because Lambda is a social media platform, it means that it would be competing against pre-established platforms that have a large user base and can make their users stick on their platforms for a longer time.
-Lambda must get's recognition, for which it needs to gain traction, by getting 1K users, Lambda plans to get help and support from those users in spreading the word about a far better social media alternative, that benefits everyone.
+Because Lambda is a social media platform, it would be competing against pre-established platforms with a large user base and can make their users stick on their platforms for a longer time.
+Lambda must gain recognition and traction. By gaining 5K users, Lambda plans to get help and support from those users in spreading the word about a far better social media alternative that benefits everyone.
 
 ### How can you help?
 
-First of all, if you are reading this section, thanks a lot for showing intrest and wanting to help Lambda reach this milestone, Lambda is nothing without its users.
+First of all, if you are reading this section, thanks a lot for showing interest and wanting to help Lambda reach this milestone. Lambda is nothing without its users.
 
-To help Lambda reach such a milestone, please go ahead and share about lambda to your network, share it with your friends, family members and co-workers. For every new sign up the prototype version of lambda gets, it adds more and more trust and support to Lambda.
+To help Lambda reach such a milestone, please go ahead and share about lambda to your network, and share it with your friends, family members, and co-workers. For every new sign-up the prototype version of lambda gets, it adds more and more trust and support to Lambda.
 
 It's more the better.
 
-If Lambda reaches at least 1K users before October, Lambda could easily get seed funding of $5M max easily.
+If Lambda reaches at least 5K users before October.
 
 Once again thanks for showing support 😃.
+
+**Current number of signups:** _80_(13 Oct 24)
 
 ## Contact
 If you have any query, just drop it in issues tab.

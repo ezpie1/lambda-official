@@ -1,20 +1,22 @@
-.profile-setting > h1 {
-  border-bottom: var(--light-gray-color) 1px solid;
-  padding-bottom: 10px;
-}
-
-.update-profile {
-  background-color: var(--green-700);
-  color: white;
-  padding: 5px 10px 5px 10px;
-  border: white solid 2px;
-  border-radius: var(--radius-sm);
+.setting-title {
+  color: var(--header);
+  font-size: 1.8rem;
 }
 
 .input-field {
-  background-color: var(--green-700);
-  color: white;
-  padding: 5px 10px 5px 10px;
-  border: white solid 2px;
-  border-radius: var(--radius-sm);
+  outline: none;
+  border: var(--primary) 3px solid;
+  border-radius: 2rem;
+  padding: 6px 15px;
+  transition: all 100ms;
+  width: 100%;
+}
+
+.input-field:focus {
+  border: rgba(89, 89, 89, 0.842) 3px solid;
+}
+
+.description-field {
+  outline: none;
+  width: 90%;
 }

@@ -73,17 +73,19 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
 
   /* eslint-disable max-len */
   return (
-    <div>
-      <h1 className="font-semibold text-2xl">Profile Setting</h1>
+    <>
+      <h1 className="setting-title text">Profile Setting</h1>
       <div className="mt-5">
         <p>
-          <span className="text-sm font-medium">Username</span> <br />
-          <span className="update-profile flex justify-between md:w-1/2 w-full">
+          <span>
+            Username
+          </span> <br />
+          <span className="flex justify-between md:w-1/2">
             <input
               type="text"
               id="username"
               name="username"
-              className="bg-transparent outline-none placeholder:text-white"
+              className="input-field"
               placeholder="Your Username"
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -112,13 +114,13 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
       </div>
       <div className="mt-5">
         <p>
-          <span className="text-sm font-medium">Bio</span> <br />
+          <span>Bio</span> <br />
           <span className="update-profile flex justify-between md:w-1/2 w-full">
             <textarea
               id="description"
               name="description"
-              className="bg-transparent outline-none placeholder:text-white w-[90%]"
-              placeholder="Describe yourself..."
+              className="description-field"
+              placeholder="Describe yourself"
               onChange={(e) => setUserDescription(e.target.value)}
             />
             <button className="md:ml-10" onClick={handleDescriptionUpdate}>
@@ -147,13 +149,13 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
 
       <div className="mt-5">
         <p>
-          <span className="text-sm font-medium">Your Email</span> <br />
+          <span>Your Email</span> <br />
           <span className="update-profile flex justify-between md:w-1/2 w-full">
             <input
               type="text"
               id="email"
               name="email"
-              className="bg-transparent outline-none placeholder:text-white"
+              className="input-field"
               placeholder="Your Email"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -181,6 +183,6 @@ export default function ProfileSettings({ userInfo }: { userInfo: Profile }) {
           </span>
         </p>
       </div>
-    </div>
+    </>
   );
 }

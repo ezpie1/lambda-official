@@ -1,0 +1,30 @@
+.posts {
+  width: 50%;
+}
+
+.posts-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.post-container {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  font-size: var(--sx-text);
+  font-weight: var(--light-bold);
+  margin-bottom: 10px;
+}
+
+.post-title {
+  font-size: var(--md-text);
+  font-weight: var(--lg-bold);
+  margin-bottom: 20px;
+}

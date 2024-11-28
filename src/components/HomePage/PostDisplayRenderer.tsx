@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import Formatter from "../Post/MarkupFormatter";
+import Image from "next/image";
 
 
 interface Props {
@@ -18,12 +19,18 @@ export default function PostDisplayFunction({ posts }: Props) {
     <>
       {posts.map((post) => (
         <div className="post-container" key={post.id} >
-          <Link href={`/post/${post.id}`} test-data="posts">
+          <Link href={`/post/${post.id}`}>
             <div className="post-wrapper">
-              <p className="post-author text-sm">
-                {post.author?.username}
+              <p className="post-author">
+                <Image
+                  src="/icons/profile-icon.svg"
+                  alt="user avatar"
+                  width={50}
+                  height={50}
+                />
+                <span>{post.author?.username}</span>
               </p>
-              <p className="post-title" test-data="postTitle">
+              <p className="post-title">
                 {post.title}
               </p>
               <p className="line-clamp-2 post-content">

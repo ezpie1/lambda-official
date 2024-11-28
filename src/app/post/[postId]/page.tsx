@@ -1,14 +1,10 @@
 // import necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Link from "next/link";
 
 // Import the LikeBtn and CommentSection components
-import Like from "@/components/Post/LikeBtn";
 import CommentSection from "@/components/Post/CommentSection";
-import Formatter from "@/components/Post/MarkupFormatter";
-// importing stylesheet
-import "@/styles/PostPage.css";
+import PostRenderer from "./PostPageRenderer";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -44,6 +40,17 @@ export default async function Page({ params }: { params: { postId: string } }) {
       likes: post.Likes.length,
     })) ?? [];
 
+  // used by the PostRenderer component
+  const {data: currentLoggedInUsernameArray} = await supabase
+  .from("profiles")
+  .select("username")
+  .eq("id", String(session?.user.id))
+  .single();
+
+  // the returned data is an object - {username: name} 
+  // For example - {username: "tester1"}
+  const currentLoggedInUsername = currentLoggedInUsernameArray?.username;
+
   if (postInfo) {
     const post = postInfo[0];
 
@@ -51,31 +58,9 @@ export default async function Page({ params }: { params: { postId: string } }) {
     return (
       <div>
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 pb-10 post-divider">
-          <section className="post p-5 md:w-1/2">
-            <div className="mb-10">
-              <h1 className="font-anonymous mb-8 text-4xl font-extrabold">
-                {post.title}
-              </h1>
-              <div className="post-content">
-                {post.content && <Formatter postContent={post.content} />}
-              </div>
-            </div>
-            <div>
-              <Like post={post} />
-            </div>
-          </section>
-          <section className="md:w-1/3 md:mt-0 w-full mt-4 author-info">
-            <p className="font-anonymous hover:underline w-fit">
-              <Link href={`/user/${post.author?.username}`}>
-                {post.author?.username}
-              </Link>
-            </p>
-            <p className="font-inter text-sm text-neural-300">
-              {post.author?.description}
-            </p>
-          </section>
+          <PostRenderer post={post} loggedInUsername={currentLoggedInUsername}/>
         </section>
-        <section>
+        <section className="ml-[17rem]">
           <CommentSection post={params.postId} />
         </section>
       </div>

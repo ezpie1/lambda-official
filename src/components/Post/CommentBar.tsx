@@ -68,19 +68,20 @@ export default function Comment({ postId, userId }: CommentInfo) {
 
   /* eslint-disable max-len */
   return (
-    <div className="flex justify-center">
-      <form className="w-full" onSubmit={(event) => handleComment(event)}>
+      <form 
+      className="flex flex-row gap-4 w-full"
+      onSubmit={(event) => handleComment(event)}
+      >
         <input
           type="text"
           placeholder="Comment..."
-          className="shadow-xl rounded-md outline-none px-5 py-3 sm:w-3/4"
+          className="shadow-xl rounded-md outline-none px-5 py-3 sm:w-1/2"
           onChange={(e) => setCommentData(e.target.value)}
           value={commentData}
         />
-        <button type="submit" className="ml-5 comment-btn rounded-lg">
+        <button type="submit" className="comment-btn">
           Comment
         </button>
       </form>
-    </div>
   );
 }

@@ -7,6 +7,7 @@ import Image from "next/image";
 
 import Formatter from "@/components/Post/MarkupFormatter";
 import FollowCoreBtn from "@/components/Profile/FollowBtnHandler";
+import SideBar from "@/components/Banners/SideBar";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -40,6 +41,10 @@ export default async function UserProfile({
   .eq("username", params.username)
   .single();
 
+  // get current logged in username for the sidebar
+  const { data: loggedInUser } = await supabase.auth.getUser()
+  const currentLoggedInUsername = loggedInUser.user?.user_metadata.username
+
   // If we have the information then continue
   if (user) {
     // Get the posts written by the user in descending order
@@ -51,44 +56,52 @@ export default async function UserProfile({
 
     /* eslint-disable max-len */
     return (
-      <div className="block md:flex h-max my-9">
-        <div className="md:w-1/2 md:h-screen profile-info md:flex-col flex-row">
-          <div className="md:mb-10 rounded-full user-avatar">
-            <div className="avatar-preview">
-              <Image
-                src="/icons/profile-icon.svg"
-                alt="User avatar"
-                className="avatar-wrapper"
-                width={100}
-                height={100}
-              ></Image>
-            </div>
-          </div>
-          <div className="md:px-5 ml-2">
-            <div>
-              <p className="font-anonymous text-2xl mb-3">
-                {user?.username}
-              </p>
-              <p className="font-inter">{user?.description}</p>
-              <p className="follower-count my-5">
-                {currentProfileUserFollowers?.followers?.length} Followers
-              </p>
-            </div>
-            <div>
-              <FollowCoreBtn currentProfileUsername={params.username}/>
-            </div>
-          </div>
-        </div>
-        <div className="mx-5 md:mt-0 mt-5 md:w-full">
-          {posts?.map((post) => (
-            <Link href={`/post/${post.id}`} key={post.id}>
-              <div className="user-post w-full h-40">
-                <p className="font-anonymous text-3xl mb-5">{post.title}</p>
-                <p className="font-inter line-clamp-2">{post.content && <Formatter postContent={post.content} />}</p>
+      <div className="mt-6">
+        <nav className="sidebar">
+          <SideBar 
+            IsHomePage={false}
+            loggedInUsername={currentLoggedInUsername}
+          />
+        </nav>
+        <section className="ml-[17rem] md:mr-[10rem]">
+          <div className="profile-info">
+            <div className="rounded-full user-avatar">
+              <div className="avatar-preview">
+                <Image
+                  src="/icons/profile-icon.svg"
+                  alt="User avatar"
+                  className="avatar-wrapper"
+                  width={100}
+                  height={100}
+                ></Image>
               </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+            <div className="ml-4 w-1/2">
+              <div>
+                <p className="font-anonymous text-2xl mb-3 username-details">
+                  {user?.username} 
+                  <span>
+                    <FollowCoreBtn currentProfileUsername={params.username}/>
+                  </span>
+                </p>
+                <p className="font-inter">{user?.description}</p>
+                <p className="follower-count my-5">
+                  {currentProfileUserFollowers?.followers?.length} Follower(s)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-5">
+            {posts?.map((post) => (
+              <Link href={`/post/${post.id}`} key={post.id}>
+                <div className="user-post w-full">
+                  <p className="font-anonymous text-3xl mb-5">{post.title}</p>
+                  <p className="font-inter line-clamp-2">{post.content && <Formatter postContent={post.content} />}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     );
   }

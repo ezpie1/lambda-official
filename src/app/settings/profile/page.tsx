@@ -32,8 +32,8 @@ export default async function Page() {
     .single();
 
   return (
-    <div className="md:mx-10 mx-5 mt-5">
-      <section className="w-full profile-setting">
+    <div className="mx-5 mt-5">
+      <section className="profile-setting">
         {userInfo != null && <ProfileSettings userInfo={userInfo} />}
       </section>
     </div>

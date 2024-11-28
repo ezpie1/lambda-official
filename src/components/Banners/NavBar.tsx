@@ -69,7 +69,7 @@ export default async function NavBar() {
             <ul className="dropdown-menu">
               
               <Link href={`/user/${userInfo.username}`}>
-              <div className="user-detail-navbar">
+                <div className="user-detail-navbar">
                   <Image 
                     src="/icons/profile-icon.svg"
                     alt="User Avatar"
@@ -79,16 +79,18 @@ export default async function NavBar() {
                   <span>{userInfo.username}</span>
                 </div>
               </Link>
-              <Link href={`/user/${userInfo.username}`}>
-                <li>
+              <li>
+                <Link 
+                  href={`/user/${userInfo.username}`}
+                >
                   Profile
-                </li>
-              </Link>
-              <Link href='/settings/profile'>
-                <li>
+                </Link>
+              </li>
+              <li>
+                <Link href='/settings/profile'>
                   Settings
-                </li>
-              </Link>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

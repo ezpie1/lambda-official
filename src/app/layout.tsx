@@ -16,6 +16,7 @@ export default async function RootLayout({
 }) {
   // Used for checking if the user is authenticated or not. If yes then display the navbars
   const supabase = createServerComponentClient({ cookies });
+
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -24,11 +25,11 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/logos/logo.svg" />
-        <title>Lambda</title>
+        <title>Privatus</title>
       </head>
-      <body className="w-[100vw] overflow-x-hidden">
+      <body>
         {session && <NavBar />}
-        <main className="mb-20">{children}</main>
+        <main>{children}</main>
         <Analytics />
       </body>
     </html>

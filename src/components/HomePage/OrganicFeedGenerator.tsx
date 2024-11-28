@@ -48,7 +48,7 @@ export default async function UserOrganicFeed() {
   return (
     <>
       <Suspense fallback={<p>Building Feed Please wait</p>}>
-        {loggedInUsersFollowingData && <PostDisplayFunction posts={followingUsersPosts} />}
+        {loggedInUsersFollowingData ? <PostDisplayFunction posts={followingUsersPosts} /> : <p>You aren't following no one</p>}
       </Suspense>
     </>
   )

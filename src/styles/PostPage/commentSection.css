@@ -1,0 +1,6 @@
+.comment-btn {
+  background-color: var(--call-to-action);
+  color: var(--primary);
+  padding: 10px 15px;
+  border-radius: 2rem;
+}

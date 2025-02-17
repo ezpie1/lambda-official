@@ -1,14 +1,12 @@
-// Importing styleSheet
-import "@/styles/commentSection.css";
 
-// Importing necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 
-// Importing CommentBar component
-import Comment from "./CommentBar";
+import Comment from "@/components/Post/CommentBar";
+
+import "@/styles/PostPage/commentSection.css"; // eslint-disable-line
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -43,7 +41,7 @@ export default async function CommentSection({ post }: { post: string }) {
 
   /* eslint-disable max-len */
   return (
-    <div className="ml-2">
+    <>
       <section>
         {userId ? (
           <Comment postId={postId} userId={userId} />
@@ -51,7 +49,7 @@ export default async function CommentSection({ post }: { post: string }) {
           <p>Ops! Refresh</p>
         )}
       </section>
-      <section className="mt-36">
+      <section>
         {comments?.map((comment) => (
           <div key={comment.id} className="flex mt-5 items-center">
             <section>
@@ -63,7 +61,7 @@ export default async function CommentSection({ post }: { post: string }) {
                 className="border-solid border-2 border-gray-400 rounded-full"
               />
             </section>
-            <section className="ml-3 border-solid border-2 border-gray-300 px-5 py-2 w-1/2 rounded-md">
+            <section className="ml-3 w-1/2">
               <p className="font-anonymous mb-3 hover:underline w-fit">
                 <Link href={`/user/${comment.profiles?.username}`}>
                   {comment.profiles?.username}
@@ -74,6 +72,6 @@ export default async function CommentSection({ post }: { post: string }) {
           </div>
         ))}
       </section>
-    </div>
+    </>
   );
 }

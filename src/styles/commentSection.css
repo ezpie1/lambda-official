@@ -1,9 +1,0 @@
-.comment-btn {
-  background-color: var(--blue-500);
-  color: var(--neural-100);
-  padding: 10px 15px;
-}
-
-.comment-btn:hover {
-  background-color: var(--blue-700);
-}

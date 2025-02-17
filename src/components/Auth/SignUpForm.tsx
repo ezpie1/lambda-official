@@ -4,6 +4,8 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import React, { useState } from "react";
 
+import { ValidateEmail, ValidateUsername } from "./Validator";
+
 /**
  * The signup form is used for creating a new user
  *
@@ -18,6 +20,17 @@ export default function SignUpForm() {
   // Connect to supabase
   const supabase = createClientComponentClient();
 
+  const isDataValid = async () => {
+    const isUsernameValid = await ValidateUsername(username);
+    const isEmailValid = await ValidateEmail(userEmail);
+
+    if (isUsernameValid && isEmailValid) {
+      return true;
+    }
+
+    return false;
+  }
+
   /**
    * handle's creating a new user with supabase
    *
@@ -27,36 +40,39 @@ export default function SignUpForm() {
     // Prevent the default functioning of the form
     event.preventDefault();
 
-    // Create a new user with their email and password, store their provided
-    // username and email as meta data
-    const { data } = await supabase.auth.signUp({
-      email: userEmail,
-      password: userPassword,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-        data: {
-          username: username,
-          email: userEmail,
+    // Create a new user with their email and password 
+    // store the provided username as meta data
+    if (await isDataValid()) {
+      const { data } = await supabase.auth.signUp({
+        email: userEmail,
+        password: userPassword,
+        options: {
+          emailRedirectTo: `${location.origin}/auth/callback`,
+          data: {
+            username: username,
+            email: userEmail,
+          },
         },
-      },
-    });
+      });
 
-    // If signup was successful then inform the user to check their email
-    if (data) {
-      alert("Check your Email for verification");
-    } else {
-      alert("Ops! Try again");
+      // If signup was successful then inform the user to check their email
+      if (data) {
+        alert("Check your Email for verification");
+      } else {
+        alert("Ops! Try again");
+      }
     }
+
   };
 
   return (
     <form
-      className="form md:w-3/4 w-full"
+      className="form-holder"
       onSubmit={(event) => handleSignUp(event)}
     >
-      <p>
+      <p className="form-inputs">
         <label htmlFor="username">
-          Your Name <span className="text-red-color">(Required)</span>
+          Username <span className="warning-text">(Required)</span>
         </label>{" "}
         <br />
         <input
@@ -66,12 +82,13 @@ export default function SignUpForm() {
           className="input"
           onChange={(e) => setUsername(e.target.value)}
           value={username}
+          placeholder="User_name"
         />
       </p>
 
-      <p>
+      <p className="form-inputs">
         <label htmlFor="email">
-          Your Email <span className="text-red-color">(Required)</span>
+          Your Email <span className="warning-text">(Required)</span>
         </label>{" "}
         <br />
         <input
@@ -81,12 +98,13 @@ export default function SignUpForm() {
           className="input"
           onChange={(e) => setUserEmail(e.target.value)}
           value={userEmail}
+          placeholder="Your Email..."
         />
       </p>
 
-      <p>
+      <p className="form-inputs">
         <label htmlFor="password">
-          Password <span className="text-red-color">(Required)</span>
+          Password <span className="warning-text">(Required)</span>
         </label>{" "}
         <br />
         <input
@@ -96,11 +114,12 @@ export default function SignUpForm() {
           className="input"
           onChange={(e) => setUserPassword(e.target.value)}
           value={userPassword}
+          placeholder="********"
         />
       </p>
 
       <div className="flex justify-center">
-        <button type="submit" className="auth-btn text-xl">
+        <button type="submit" className="auth-btn">
           SIGN UP
         </button>
       </div>

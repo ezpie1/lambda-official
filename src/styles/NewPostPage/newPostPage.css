@@ -1,14 +1,10 @@
 .post-form {
-  --neural-200-20: rgba(215, 215, 218, 0.2);
-
-  background-color: var(--neural-200-20);
-  border: var(--neural-200) solid 1px;
-  border-radius: var(--radius-md);
+  background-color: var(--secondary);
+  border-radius: 10px;
 }
 
 .meta-data {
   background: transparent;
-  /* border: red solid 1px; */
   width: 100%;
   outline: none;
 }
@@ -31,16 +27,17 @@
 }
 
 .post-btn {
-  background-color: var(--primary-400);
-  color: var(--primary-600);
+  background-color: var(--call-to-action);
+  color: var(--primary);
   font-size: 2rem;
   padding: 3px 22px;
   margin-top: 2rem;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   transition: all 0.5s;
 }
 
 .post-btn:hover {
-  background-color: var(--primary-600);
-  color: var(--primary-400);
+  --call-to-action-20: rgba(0, 139, 238, 0.5);
+
+  background-color: var(--call-to-action-20);
 }

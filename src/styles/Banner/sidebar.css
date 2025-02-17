@@ -1,0 +1,26 @@
+.sidebar {
+  display: grid;
+  row-gap: 22px;
+  background-color: var(--secondary);
+  color: var(--neutral);
+  padding: 15px 33px;
+  border-radius: 0px 10px 10px 0px;
+  height: 61vh; /* this just works */
+  width: var(--sidebar-width);
+  position: fixed;
+  z-index: 1;
+}
+
+.nav-options {
+  display: grid;
+  row-gap: 8px;
+}
+
+.option-selected {
+  color: var(--call-to-action);
+  font-weight: var(--lg-bold);
+}
+
+.nav-option:hover {
+  cursor: pointer;
+}

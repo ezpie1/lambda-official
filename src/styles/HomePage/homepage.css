@@ -1,0 +1,8 @@
+.homepage-wrapper {
+  display: flex;
+}
+
+.header {
+  font-weight: var(--lg-bold);
+  font-size: var(--lg-text);
+}

@@ -1,4 +1,4 @@
-import "@/styles/navbar.css";
+import "@/styles/Banner/navbar.css";
 
 // Import necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -50,16 +50,16 @@ export default async function NavBar() {
         <div className="mx-auto">
           <Link href="/new-post">
             <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
-              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
-              <g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="#80CEFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> </g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+              <g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="#80CEFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> </g>
             </svg>
           </Link>
         </div>
         <div className="ml-2 justify-self-end xl:m-auto">
           <div className="dropdown">
             <span>
-              <Image 
+              <Image
                 src="/icons/profile-icon.svg"
                 alt="User Avatar"
                 width={50}
@@ -67,10 +67,10 @@ export default async function NavBar() {
               />
             </span>
             <ul className="dropdown-menu">
-              
+
               <Link href={`/user/${userInfo.username}`}>
                 <div className="user-detail-navbar">
-                  <Image 
+                  <Image
                     src="/icons/profile-icon.svg"
                     alt="User Avatar"
                     width={50}
@@ -80,7 +80,7 @@ export default async function NavBar() {
                 </div>
               </Link>
               <li>
-                <Link 
+                <Link
                   href={`/user/${userInfo.username}`}
                 >
                   Profile

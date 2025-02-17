@@ -5,15 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import "@/styles/HomePage/sidebar.css"
+import "@/styles/Banner/sidebar.css"
 
 interface Props {
   ShowPopularPosts?: (isSelected: boolean) => void;
   loggedInUsername: string;
-  IsHomePage: boolean;
 }
 
-export default function SideBar({ ShowPopularPosts, loggedInUsername, IsHomePage }: Props) {
+export default function SideBar({ ShowPopularPosts, loggedInUsername }: Props) {
   const [isFeedSelected, setFeedSelected] = useState(true);
   const [isPopularSelected, setPopularSelected] = useState(false);
   const [followingArray, setFollowingArray] = useState<any>([]);

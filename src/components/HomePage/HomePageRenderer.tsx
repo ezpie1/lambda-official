@@ -25,7 +25,6 @@ export default function HomePage({ popularPosts, loggedInUsername }: HomePagePro
         <SideBar
           ShowPopularPosts={DisplayPopular}
           loggedInUsername={loggedInUsername}
-          IsHomePage={true}
         />
       </nav>
       <RenderedContent popularPostsList={popularPosts || []} displayPopularIfSelected={isPopularSelected} />

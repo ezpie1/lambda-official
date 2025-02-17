@@ -5,20 +5,19 @@ import Like from "@/components/Post/LikeBtn";
 import Formatter from "@/components/Post/MarkupFormatter";
 import SideBar from "@/components/Banners/SideBar";
 
-import "@/styles/PostPage.css";
+import "@/styles/PostPage/PostPage.css";
 
 interface Props {
   post: any;
   loggedInUsername: string | undefined;
 }
 
-export default function PostRenderer({post, loggedInUsername} : Props) {
+export default function PostRenderer({ post, loggedInUsername }: Props) {
 
   return (
     <>
       <nav className="sidebar">
-        <SideBar 
-          IsHomePage={false} 
+        <SideBar
           loggedInUsername={String(loggedInUsername)}
         />
       </nav>
@@ -37,7 +36,7 @@ export default function PostRenderer({post, loggedInUsername} : Props) {
       </section>
       <section className="w-80">
         <p>
-          <Link 
+          <Link
             href={`/user/${post.author?.username}`}
             className="font-anonymous hover:underline"
           >

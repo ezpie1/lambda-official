@@ -1,5 +1,5 @@
 // Importing styleSheet
-import "@/styles/commentSection.css";
+import "@/styles/PostPage/CommentSection.css";
 
 // Importing necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";

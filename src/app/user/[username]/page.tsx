@@ -1,13 +1,14 @@
 // importing necessary libraries and hooks
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import "@/styles/profilePage.css"; // stylesheet
 import Link from "next/link";
 import Image from "next/image";
 
 import Formatter from "@/components/Post/MarkupFormatter";
 import FollowCoreBtn from "@/components/Profile/FollowBtnHandler";
 import SideBar from "@/components/Banners/SideBar";
+
+import "@/styles/ProfilePage/ProfilePage.css";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -36,10 +37,10 @@ export default async function UserProfile({
 
   // getting the number of followers the current profile user has
   const { data: currentProfileUserFollowers } = await supabase
-  .from("profiles")
-  .select("followers")
-  .eq("username", params.username)
-  .single();
+    .from("profiles")
+    .select("followers")
+    .eq("username", params.username)
+    .single();
 
   // get current logged in username for the sidebar
   const { data: loggedInUser } = await supabase.auth.getUser()
@@ -58,8 +59,7 @@ export default async function UserProfile({
     return (
       <div className="mt-6">
         <nav className="sidebar">
-          <SideBar 
-            IsHomePage={false}
+          <SideBar
             loggedInUsername={currentLoggedInUsername}
           />
         </nav>
@@ -79,9 +79,9 @@ export default async function UserProfile({
             <div className="ml-4 w-1/2">
               <div>
                 <p className="font-anonymous text-2xl mb-3 username-details">
-                  {user?.username} 
+                  {user?.username}
                   <span>
-                    <FollowCoreBtn currentProfileUsername={params.username}/>
+                    <FollowCoreBtn currentProfileUsername={params.username} />
                   </span>
                 </p>
                 <p className="font-inter">{user?.description}</p>

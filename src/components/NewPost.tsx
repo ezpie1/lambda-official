@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 // import stylesheet
-import "@/styles/newPostPage.css";
+import "@/styles/NewPostPage/newPostPage.css";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

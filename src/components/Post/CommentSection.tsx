@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Comment from "@/components/Post/CommentBar";
 
-import "@/styles/PostPage/CommentSection.css"; // eslint-disable-line
+import "@/styles/PostPage/commentSection.css"; // eslint-disable-line
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

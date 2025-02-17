@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import Like from "@/components/Post/LikeBtn";
 import Formatter from "@/components/Post/MarkupFormatter";
 import SideBar from "@/components/Banners/SideBar";
@@ -8,7 +9,7 @@ import SideBar from "@/components/Banners/SideBar";
 import "@/styles/PostPage/PostPage.css";
 
 interface Props {
-  post: any;
+  post: postWithAuthor;
   loggedInUsername: string | undefined;
 }
 

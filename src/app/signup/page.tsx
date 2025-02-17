@@ -14,7 +14,7 @@ export default function SignUp() {
           <p>That values privacy</p>
         </section>
         <section className="grid mt-16">
-          <p>It's <span className="main-text">Open-source</span></p>
+          <p>It&apos;s <span className="main-text">Open-source</span></p>
           <p className="justify-self-center">and</p>
           <p className="main-text justify-self-center">Privacy based</p>
         </section>

@@ -1,10 +1,8 @@
-// import necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-// Import the LikeBtn and CommentSection components
 import CommentSection from "@/components/Post/CommentSection";
-import PostRenderer from "./PostPageRenderer";
+import PostRenderer from "@/app/post/[postId]/PostPageRenderer";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -41,11 +39,11 @@ export default async function Page({ params }: { params: { postId: string } }) {
     })) ?? [];
 
   // used by the PostRenderer component
-  const {data: currentLoggedInUsernameArray} = await supabase
-  .from("profiles")
-  .select("username")
-  .eq("id", String(session?.user.id))
-  .single();
+  const { data: currentLoggedInUsernameArray } = await supabase
+    .from("profiles")
+    .select("username")
+    .eq("id", String(session?.user.id))
+    .single();
 
   // the returned data is an object - {username: name} 
   // For example - {username: "tester1"}
@@ -58,7 +56,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
     return (
       <div>
         <section className="md:flex justify-between md:mx-2 mx-1 my-4 pb-10 post-divider">
-          <PostRenderer post={post} loggedInUsername={currentLoggedInUsername}/>
+          <PostRenderer post={post} loggedInUsername={currentLoggedInUsername} />
         </section>
         <section className="ml-[17rem]">
           <CommentSection post={params.postId} />

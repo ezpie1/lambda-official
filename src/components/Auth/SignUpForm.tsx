@@ -3,6 +3,7 @@
 // Importing necessary libraries and hooks
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import React, { useState } from "react";
+
 import { ValidateEmail, ValidateUsername } from "./Validator";
 
 /**
@@ -19,14 +20,14 @@ export default function SignUpForm() {
   // Connect to supabase
   const supabase = createClientComponentClient();
 
-  const IsDataValid = async () => {
+  const isDataValid = async () => {
     const isUsernameValid = await ValidateUsername(username);
     const isEmailValid = await ValidateEmail(userEmail);
-    
+
     if (isUsernameValid && isEmailValid) {
       return true;
     }
-    
+
     return false;
   }
 
@@ -41,7 +42,7 @@ export default function SignUpForm() {
 
     // Create a new user with their email and password 
     // store the provided username as meta data
-    if (await IsDataValid()) {
+    if (await isDataValid()) {
       const { data } = await supabase.auth.signUp({
         email: userEmail,
         password: userPassword,

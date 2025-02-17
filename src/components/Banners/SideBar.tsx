@@ -15,7 +15,7 @@ interface Props {
 export default function SideBar({ ShowPopularPosts, loggedInUsername }: Props) {
   const [isFeedSelected, setFeedSelected] = useState(true);
   const [isPopularSelected, setPopularSelected] = useState(false);
-  const [followingArray, setFollowingArray] = useState<any>([]);
+  const [followingArray, setFollowingArray] = useState<string[]>([]);
 
   const supabase = createClientComponentClient<Database>();
 
@@ -27,13 +27,13 @@ export default function SideBar({ ShowPopularPosts, loggedInUsername }: Props) {
       .single();
 
     if (data?.following) {
-      setFollowingArray(data.following)
+      setFollowingArray(data.following as string[])
     }
   }
 
   useEffect(() => {
     getFollowingArray();
-  }, [])
+  })
 
   if (ShowPopularPosts) {
 
@@ -77,7 +77,7 @@ export default function SideBar({ ShowPopularPosts, loggedInUsername }: Props) {
           <h1 className="header">Following</h1>
           <ul>
             {followingArray.length > 0 ? (
-              followingArray.map((username: any, index: number) => (
+              followingArray.map((username: string, index: number) => (
                 <a href={`/user/${username}`} key={index}>
                   <li className="flex items-center">
                     <Image
@@ -125,7 +125,7 @@ export default function SideBar({ ShowPopularPosts, loggedInUsername }: Props) {
           <h1 className="header">Following</h1>
           <ul>
             {followingArray.length > 0 ? (
-              followingArray.map((username: any, index: number) => (
+              followingArray.map((username: string, index: number) => (
                 <a href={`/user/${username}`} key={index}>
                   <li className="flex items-center">
                     <Image

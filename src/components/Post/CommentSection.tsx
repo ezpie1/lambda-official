@@ -1,14 +1,12 @@
-// Importing styleSheet
-import "@/styles/PostPage/CommentSection.css";
 
-// Importing necessary libraries
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 
-// Importing CommentBar component
-import Comment from "./CommentBar";
+import Comment from "@/components/Post/CommentBar";
+
+import "@/styles/PostPage/CommentSection.css"; // eslint-disable-line
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

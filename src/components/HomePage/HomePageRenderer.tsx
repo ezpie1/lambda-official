@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
 import SideBar from "@/components/Banners/SideBar";
 import Posts from "@/components/HomePage/DisplayPost";
-import { useState } from "react";
 
 import "@/styles/HomePage/homepage.css"
 import "@/styles/HomePage/postStyle.css"
@@ -12,24 +13,27 @@ interface HomePageProps {
   loggedInUsername: string;
 }
 
-export default function HomePage({ popularPosts, loggedInUsername }: HomePageProps) {
+export default function HomePage({ popularPosts, loggedInUsername }: HomePageProps) { // eslint-disable-line max-len
+
   const [isPopularSelected, setIsPopularSelected] = useState(false);
 
-  const DisplayPopular = (isPopularSelected: boolean) => {
+  const displayPopular = (isPopularSelected: boolean) => {
     setIsPopularSelected(isPopularSelected)
   }
 
+  /* eslint-disable */
   return (
     <div className="homepage-wrapper mt-8">
       <nav className="sidebar">
         <SideBar
-          ShowPopularPosts={DisplayPopular}
+          ShowPopularPosts={displayPopular}
           loggedInUsername={loggedInUsername}
         />
       </nav>
       <RenderedContent popularPostsList={popularPosts || []} displayPopularIfSelected={isPopularSelected} />
     </div>
   )
+  /* eslint-enable */
 }
 
 interface Props {
@@ -37,7 +41,7 @@ interface Props {
   displayPopularIfSelected: boolean
 }
 
-function RenderedContent({ popularPostsList, displayPopularIfSelected }: Props) {
+function RenderedContent({ popularPostsList, displayPopularIfSelected }: Props) { // eslint-disable-line
   return (
     <div className="posts-wrapper">
       <Posts

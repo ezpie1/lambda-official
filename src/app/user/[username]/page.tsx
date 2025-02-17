@@ -1,4 +1,3 @@
-// importing necessary libraries and hooks
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import Formatter from "@/components/Post/MarkupFormatter";
 import FollowCoreBtn from "@/components/Profile/FollowBtnHandler";
 import SideBar from "@/components/Banners/SideBar";
 
-import "@/styles/ProfilePage/ProfilePage.css";
+import "@/styles/ProfilePage/profilePage.css"; // eslint-disable-line
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";

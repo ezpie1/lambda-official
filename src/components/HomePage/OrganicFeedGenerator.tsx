@@ -16,9 +16,9 @@ export default async function UserOrganicFeed() {
   const loggedInUserId = user?.id;
 
   const { data } = await supabase
-  .from("profiles")
-  .select("following")
-  .eq("id", String(loggedInUserId));
+    .from("profiles")
+    .select("following")
+    .eq("id", String(loggedInUserId));
 
   // the current logged in user's following data
   // this works mainly because the json returned from the database is an object
@@ -27,19 +27,19 @@ export default async function UserOrganicFeed() {
 
   const followingUsersPosts: postWithAuthor[] = [];
   // TypeScript... don't ask
-  if (loggedInUsersFollowingData) {    
+  if (loggedInUsersFollowingData) {
     for (let i = 0; i < loggedInUsersFollowingData.length; i++) {
       const { data } = await supabase
-      .from("Blogs")
-      .select("*, author: profiles(*)")
-      .eq("author", String(loggedInUsersFollowingData[i]));
-  
+        .from("Blogs")
+        .select("*, author: profiles(*)")
+        .eq("author", String(loggedInUsersFollowingData[i]));
+
       followingUsersPosts.push(...data ?? []);
     }
-  
+
     // this helps sort the array in descending order with latest posts on top
     /* eslint-disable max-len */
-    followingUsersPosts.sort((a, b) =>  new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    followingUsersPosts.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
     // TODO: Display only top 10 posts for preventing latency and add more on reaching end
   }
@@ -48,7 +48,7 @@ export default async function UserOrganicFeed() {
   return (
     <>
       <Suspense fallback={<p>Building Feed Please wait</p>}>
-        {loggedInUsersFollowingData && <PostDisplayFunction posts={followingUsersPosts} />}
+        {loggedInUsersFollowingData ? <PostDisplayFunction posts={followingUsersPosts} /> : <p>You are not following no one</p>}
       </Suspense>
     </>
   )

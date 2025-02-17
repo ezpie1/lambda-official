@@ -2,104 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* font from google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Inter:wght@100;400&display=swap");
-
 :root {
-  /* primary color */
-  --primary-100: #E8F6FF;
-  --primary-200: #C3E8FF;
-  --primary-300: #80CEFF;
-  --primary-400: #5e7ef2;
-  --primary-500: #365eeb;
-  --primary-600: #1f43c4;
+  --primary: #FFFFFF;
+  --secondary: #F5F5F5;
+  --neutral: #595959;
+  --call-to-action: #0089EE;
+  --header: #24FF69;
+  --warning: #ff5050;
 
-  /* Neural colors */
-  --neural-white: #FFFFFF;
-  --neural-100: #EAEAEA;
-  --neural-200: #d6d6d9;
-  --neural-300: #a8a8ad;
-  --neural-400: #868690;
-  --neural-500: #585864;
-  --neural-600: #575763;
-  --neural-700: #454553;
-  --neural-800: #414151;
-  --neural-900: #2f2f3e;
+  --lg-bold: 700;
+  --md-bold: 400;
+  --light-bold: 100;
+  --xl-text: 40px;
+  --lg-text: 35px;
+  --md-text: 20px;
+  --sx-text: 15px;
 
-  /* green color */
-  --green-300: #9cff94;
-  --green-400: #6af25e;
-  --green-500: #44eb36;
-  --green-700: #19a30d;
-  --green-900: #064d00;
-
-  /* blue color */
-  --blue-500: #37a0eb;
-  --blue-700: #0d64a3;
-  --blue-800: #064c7f;
-  --blue-900: #002c4d;
-
-  /* red color */
-  --red-500: #eb3636;
-
-  /* border radius */
-  --radius-sm: 5px;
-  --radius-md: 10px;
-  --radius-lg: 23px;
-  --radius-full: 100%;
-
-  /* alpha colors */
-  --black-25: rgba(0, 0, 0, 0.25);
+  /* Sidebar Variables */
+  --sidebar-width: 16rem;
 }
 
 /* The default background color for the app */
 body {
-  background-color: var(--primary-100);
-}
-
-/* common styles */
-
-.text-red-color {
-  color: var(--red-500);
-}
-
-.text-neural-300 {
-  color: var(--neural-300);
-}
-
-.font-anonymous {
-  font-family: "Anonymous Pro", monospace;
-}
-
-.font-inter {
-  font-family: "Inter", sans-serif;
-}
-
-.input {
-  background-color: var(--green-700);
-  color: white;
-  padding: 5px 10px 5px 10px;
-  outline: none;
-  border: white solid 2px;
-  border-radius: var(--radius-sm);
-  transition: all 0.5s;
-}
-
-.input:hover {
-  background-color: var(--green-900);
-}
-
-.input:focus {
-  background-color: var(--green-900);
-}
-
-.text-gray-dark {
-  color: var(--dark-gray-color);
-}
-
-.info-badge {
-  border: var(--green-400) solid 3px;
-  color: var(--green-400);
-  padding: 5px 10px;
-  border-radius: 2rem;
+  background-color: var(--primary);
 }

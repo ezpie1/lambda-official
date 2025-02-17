@@ -1,0 +1,68 @@
+.main-text {
+  color: var(--header);
+  font-weight: var(--lg-bold);
+}
+
+.default-text {
+  color: var(--neutral);
+  font-size: var(--xl-text);
+  font-weight: var(--md-bold);
+}
+
+.form-holder {
+  color: var(--neutral);
+  background-color: var(--secondary);
+  border-radius: 15px;
+  padding: 32px 34px;
+  width: 100%
+}
+
+.form-inputs {
+  font-size: var(--sx-text);
+  margin-bottom: 21px;
+}
+
+.warning-text {
+  color: var(--warning);
+}
+
+.input {
+  background-color: var(--primary);
+  padding: 5px 10px 5px 10px;
+  margin-top: 6px;
+  outline: none;
+  border: white solid 2px;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.auth-btn {
+  background: var(--call-to-action);
+  color: var(--secondary);
+  padding: 9px 30px;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+
+.auth-btn:hover {
+  transform: scale(1.2);
+}
+
+.separator {
+  background-image: linear-gradient(
+    to right,
+    var(--call-to-action),
+    var(--header)
+  );
+}
+
+.link-text {
+  color: var(--neutral);
+  transition: all 1s;
+}
+
+.link-text:hover {
+  border-bottom: 1px solid var(--neutral);
+}

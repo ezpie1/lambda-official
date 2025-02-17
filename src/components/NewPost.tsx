@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 // import stylesheet
-import "@/styles/newPostPage.css";
+import "@/styles/NewPostPage/newPostPage.css";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -37,10 +37,10 @@ export default function NewPost() {
 
     // need to get the username of author for `author` column
     const { data: author } = await supabase
-    .from("profiles")
-    .select("username")
-    .eq("id", String(user?.id))
-    .single();
+      .from("profiles")
+      .select("username")
+      .eq("id", String(user?.id))
+      .single();
 
     // If user exists, then only add post to the Blogs table
     if (user) {
@@ -50,7 +50,6 @@ export default function NewPost() {
         user_id: user.id,
         author: author?.username,
         likes: 0,
-        // author: 
       });
 
       if (status === 201) {

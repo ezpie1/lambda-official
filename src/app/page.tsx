@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-import Posts from "@/components/HomePage/DisplayPost";
+import HomePage from "@/components/HomePage/HomePageRenderer";
 
 // Tell's vercel that this is a dynamic function
 export const dynamic = "force-dynamic";
@@ -21,31 +21,25 @@ export default async function Home() {
     redirect("/login");
   }
 
-  // get the posts in latest order
-  const { data: latestPosts } = await supabase
-    .from("Blogs")
-    .select("*, author: profiles(*)")
-    .order("created_at", { ascending: false });
-
   // get the posts in most liked order
   const { data: popularPosts } = await supabase
     .from("Blogs")
     .select("*, author: profiles(*)")
     .order("likes", { ascending: false });
 
+  // get current logged in username
+  const { data: loggedInUser } = await supabase.auth.getUser();
+  const userID = loggedInUser.user?.id
+  const { data: loggedInUsername } = await supabase
+  .from("profiles")
+  .select("username")
+  .eq("id", String(userID))
+  .single();
+
+  const username = String(loggedInUsername?.username)
+
   /* eslint-disable max-len */
   return (
-    <RenderedContent latestPostsList={latestPosts || []} popularPostsList={popularPosts || []} />
-  );
-}
-
-function RenderedContent({latestPostsList, popularPostsList}: {latestPostsList: postWithAuthor[], popularPostsList: postWithAuthor[]}) {
-  return (
-    <div className="m-12 flex flex-col items-center">
-      <Posts
-        latestPosts={latestPostsList || []}
-        popularPosts={popularPostsList || []}
-      />
-    </div>
+    <HomePage popularPosts={popularPosts || []} loggedInUsername={username}/>
   );
 }

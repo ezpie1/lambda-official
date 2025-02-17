@@ -42,12 +42,12 @@ export default function LogInForm() {
 
   return (
     <form
-      className="form md:w-3/4 w-full"
+      className="form-holder"
       onSubmit={(event) => handleLogIn(event)}
     >
-      <p>
+      <p className="form-inputs">
         <label htmlFor="email">
-          Your Email <span className="text-red-color">(Required)</span>
+          Your Email
         </label>
         <br />
         <input
@@ -57,12 +57,13 @@ export default function LogInForm() {
           className="input"
           onChange={(e) => setUserEmail(e.target.value)}
           value={userEmail}
+          placeholder="Your Email..."
         />
       </p>
 
-      <p>
+      <p className="form-inputs">
         <label htmlFor="password">
-          Password <span className="text-red-color">(Required)</span>
+          Password
         </label>
         <br />
         <input
@@ -72,11 +73,14 @@ export default function LogInForm() {
           className="input"
           onChange={(e) => setUserPassword(e.target.value)}
           value={userPassword}
+          placeholder="********"
         />
       </p>
 
       <div className="flex justify-center">
-        <button className="auth-btn text-xl">LogIn</button>
+        <button className="auth-btn">
+          LogIn
+        </button>
       </div>
     </form>
   );

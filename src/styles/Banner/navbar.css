@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--primary-200);
+  background-color: var(--secondary);
   padding: 6px 2rem;
   display: flex;
   justify-content: space-around;
@@ -12,7 +12,7 @@ form.search-bar {
   border: var(--gray-500) solid 1px;
   border-radius: 2rem;
   outline: none;
-  box-shadow: 0px 4px 5px var(--black-25);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
 .search-field {
@@ -35,16 +35,21 @@ form.search-bar {
 }
 
 .dropdown-menu {
+  display: none;
   background-color: #fff;
   margin: 1rem 0;
   padding: 1rem;
   position: absolute;
-  right: 5rem;
-  opacity: 0;
+  right: 1rem;
+  top: 2.5rem;
   text-align: center;
   width: 15rem;
   border-radius: 10px;
-  box-shadow: 0px 4px 5px var(--black-25);
+  box-shadow: 0px 4px 5px var(--neutral);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 .dropdown-menu > a > li {
@@ -52,10 +57,6 @@ form.search-bar {
   margin: 5px 10px;
   border-radius: 10px;
   transition: all 1s;
-}
-
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
 }
 
 .dropdown-menu > a > li:hover {

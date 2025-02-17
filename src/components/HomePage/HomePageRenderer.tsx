@@ -22,13 +22,13 @@ export default function HomePage({ popularPosts, loggedInUsername }: HomePagePro
   return (
     <div className="homepage-wrapper mt-8">
       <nav className="sidebar">
-        <SideBar 
-          ShowPopularPosts={DisplayPopular} 
+        <SideBar
+          ShowPopularPosts={DisplayPopular}
           loggedInUsername={loggedInUsername}
           IsHomePage={true}
         />
       </nav>
-      <RenderedContent popularPostsList={popularPosts || []} displayPopularIfSelected={isPopularSelected}/>
+      <RenderedContent popularPostsList={popularPosts || []} displayPopularIfSelected={isPopularSelected} />
     </div>
   )
 }
@@ -38,7 +38,7 @@ interface Props {
   displayPopularIfSelected: boolean
 }
 
-function RenderedContent({popularPostsList, displayPopularIfSelected}: Props) {
+function RenderedContent({ popularPostsList, displayPopularIfSelected }: Props) {
   return (
     <div className="posts-wrapper">
       <Posts

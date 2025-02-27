@@ -176,4 +176,4 @@ It's more the better.
 
 Once again thanks for showing support 😃.
 
-**Current number of signups:** _78_(17 Feb 25)
+**Current number of signups:** _80_(27 Feb 25)
